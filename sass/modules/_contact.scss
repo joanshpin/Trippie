@@ -1,0 +1,118 @@
+/*CONTACT*/
+.contact {
+	height: 550px;
+}
+
+.contact > .container > h2 {
+	font-size: 22px;
+	font-weight: bold;
+	padding: 34px 0 20px 5px;
+}
+
+.contact > .container > h2::after {
+	content: " ";
+	height: 6px;
+	width: 319px;
+	background-color: $accentColor;
+	display: block;
+	margin-top: 6px;
+}
+
+.contact .userData input {
+	height: 67px;
+	display: block;
+	margin: 25px 0 0 5px;
+	width: 633px;
+	border: 1px solid #a5e2d0;
+}
+
+.contact input[type=textarea] {
+	height: 190px;
+}
+
+.contact [placeholder] {
+	font-size: 35px;
+	font-family: Raleway;
+	font-weight: 300;
+	padding-left: 10px;
+}
+
+.contact .formTexts {
+	width: 65%;
+	float: left;
+}
+
+.contact .formSubmit {
+	width: 35%;
+	float: left;
+}
+
+.contact .formImg {
+	height: 210px;
+	width: 310px;
+	background-image: url("../images/red_chair.png");
+	background-size: 85%;
+	background-position: 26px -3px;
+	background-repeat: no-repeat;
+}
+
+.contact .userSubmission button {
+	background-color: $accentColor;
+	color: white;
+	border-radius: 8px;
+	border: none;
+	font-size: 30px;
+	text-align: center;
+	font-weight: 600;
+	padding: 17px 117px;
+	display: block;
+	margin: 9px 0 0 4px;
+}
+
+.contact .checkboxRules {
+	position: relative;
+	padding: 30px 30px 30px 0;
+}
+
+.contact .checkboxRules .myinput {
+	display: block;
+	opacity: 1;
+	height: 48px;
+	position: absolute;
+	width: 48px;
+	cursor: pointer;
+	left: 4px;
+}
+
+.contact .checkboxRules label {
+	display: block;
+	width: 354px;
+	padding-left: 65px;
+	font-size: 20px;
+	color: #cecece;
+	padding-top: 4px;
+	line-height: 110%;
+}
+
+.contact .myinput[type="checkbox"]::before {
+	position: relative;
+	display: block;
+	width: 48px;
+	height: 48px;
+	border: 1px solid $accentColor;
+	content: "";
+	background: #FFF;
+}
+
+.contact .myinput[type="checkbox"]:checked::before {
+	position: relative;
+	display: block;
+	width: 48px;
+	height: 48px;
+	border: 1px solid #808080;
+	content: "";
+	background-image: url('../images/form_ok.jpg');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}

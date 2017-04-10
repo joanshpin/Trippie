@@ -1,0 +1,61 @@
+/*FOOTER*/
+footer {
+	height: 100px;
+}
+
+footer p {
+	padding-top: 32px;
+	display: inline-block;
+	width: 50%;
+}
+
+.footerRight {
+	float: right;
+	height: 100px;
+	width: 50%;
+}
+
+.footerLogos {
+	display: inline-block;
+	margin: 16px 0 0 164px;
+}
+
+.flickr,
+.pinterest,
+.twitter,
+.vimeo {
+	width: 35px;
+	height: 35px;
+	background-size: contain;
+	display: inline-block;
+}
+
+.flickr {
+	background-image: url("../images/flickr.png");
+}
+
+.vimeo {
+	background-image: url("../images/vimeo.png");
+}
+
+.pinterest {
+	background-image: url("../images/pinterest.png");
+}
+
+.twitter {
+	background-image: url("../images/twitter.png");
+}
+
+.mainLogo {
+	float: right;
+	font-size: 20px;
+	margin: 23px 11px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	line-height: 35px;
+	color: grey;
+}
+
+.mainLogo span {
+	font-weight: bold;
+}

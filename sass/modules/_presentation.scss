@@ -1,0 +1,81 @@
+/*PRESENTATION PICS*/
+.presentation {
+	margin-top: 28px;
+	height: 250px;
+}
+
+.presentationPic,
+.presentationText {
+	width: 329px;
+	height: 224px;
+	float: left;
+}
+
+.presentationPic:first-child {
+	background-image: url("../images/box1_img.jpg");
+	background-size: contain;
+}
+
+.presentationPic:nth-child(2) {
+	background-image: url("../images/box2_img.jpg");
+	margin: 0 30px;
+}
+
+.presentationText {
+	padding: 19px;
+	border: 1px solid silver;
+}
+
+.presentationPic h3 {
+	margin: 162px 0 0 17px;
+	font-size: 16px;
+	font-weight: bold;
+	position: relative;
+}
+
+.presentationPic h3::after {
+	content: " ";
+	height: 7px;
+	width: 142px;
+	background-color: $accentColor;
+	display: block;
+	position: absolute;
+	left: -4px;
+	top: 20px;
+}
+
+.presentationPic h3::before {
+	content: " ";
+	height: 64px;
+	width: 329px;
+	background-color: rgba(255, 255, 255, 0.4);
+	display: block;
+	position: absolute;
+	top: -14px;
+	left: -17px;
+}
+
+.presentationText h3 {
+	font-size: 16px;
+	margin-top: 7px;
+	font-weight: bold;
+}
+
+.presentationText h3::after {
+	content: " ";
+	height: 7px;
+	width: 142px;
+	background-color: $accentColor;
+	display: block;
+	position: absolute;
+}
+
+.presentationText p {
+	font-size: 14px;
+	margin: 21px 0;
+	line-height: 20px;
+}
+
+.hiding {
+	display: none;
+}
