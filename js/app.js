@@ -1,55 +1,22 @@
 document.addEventListener('DOMContentLoaded', function(){
-  console.log("dom");
 
+  var planData = document.querySelector(".planData");
 
-// displaying inner menu "about"
-  var about = document.querySelector(".mainMenu li:first-child");
-  var aboutMenu = document.querySelector(".aboutMenu");
+  var btnPlace = planData.querySelector(".place button");
+  var btnDates = planData.querySelector(".dates button");
+  var btnTransport = planData.querySelector(".transport button");
+  var btnAccomodation = planData.querySelector(".accomodation button");
 
-  about.addEventListener("mouseover", function() {
-    aboutMenu.classList.toggle('displayed');
-  })
+  var inpPlace = planData.querySelector(".place input");
+  var inpDates = planData.querySelector(".dates input");
+  var inpTransport = planData.querySelector(".transport input");
+  var inpAccomodation = planData.querySelector(".accomodation input");
 
-// hiding description of chairs in presentation part
-  var presentationPicDesc = document.querySelectorAll(".presentationPic h3");
-  var presentationPic = document.querySelectorAll(".presentationPic");
+  btnPlace.addEventListener("click", function() {
+    // console.log("click");
+    if (inpPlace.length > 0) {
+      console.log("CLICK");
+    }
+  }); //closing addEventListener click
 
-  for (var i = 0; i < presentationPicDesc.length; i++) {
-    presentationPic[i].addEventListener("mouseover", function() {
-      var presentationPicDesc = this.querySelector("h3");
-      presentationPicDesc.classList.add('hiding');
-    })
-    presentationPic[i].addEventListener("mouseout", function() {
-      var presentationPicDesc = this.querySelector("h3");
-      presentationPicDesc.classList.remove('hiding');
-    })
-  }
-
-// slider using main pics
-var mainPic = document.querySelectorAll(".mainPic li");
-var leftArrow = document.querySelector(".arrowLeft");
-var rightArrow = document.querySelector(".arrowRight");
-
-var visiblePic = 0;
-mainPic[visiblePic].classList.add("visible");
-
-leftArrow.addEventListener("click", function() {
-  mainPic[visiblePic].classList.remove("visible");
-  visiblePic -= 1;
-
-  if (visiblePic < 0) {
-    visiblePic = mainPic.length-1;
-  }
-  mainPic[visiblePic].classList.add("visible");
-  })
-
-rightArrow.addEventListener("click", function() {
-  mainPic[visiblePic].classList.remove("visible");
-  visiblePic += 1;
-
-  if (visiblePic > mainPic.length-1) {
-    visiblePic = 0
-  }
-  mainPic[visiblePic].classList.add("visible");
-  });
-});
+}); // closing DOM
