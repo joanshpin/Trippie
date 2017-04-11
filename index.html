@@ -5,9 +5,7 @@
     <!-- <link rel="stylesheet" href="css/reset.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/app.js" type="text/javascript">
 
-    </script>
     <title></title>
   </head>
   <body>
@@ -73,46 +71,83 @@
             <button type="button">Add</button>
           </div>
 
+
+
+        </div>
+        <button type="button" class="addMarker">Dodaj do mapy</button>
+      </div>
+
+    </section>
+
+    <section class="lastTrips">
+      <div class="container">
+        <div class="lastTrip">
+        </div>
+        <div class="lastTrip">
+        </div>
+        <div class="lastTrip">
+        </div>
+        <div class="lastTrip">
+        </div>
+        <div class="lastTrip">
+        </div>
+        <div class="lastTrip">
         </div>
       </div>
     </section>
 
     <section class="map">
-      
+      <div class="container">
+        <header>
+          <h3>Your places!</h3>
+        </header>
+        <div id="map">
+          <!-- google maps api-->
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA6ikf7yth3jIMgE4dC22ZGcOmza-5Lww&callback=initMap"> </script>
+          <!-- google maps api to add places-->
+          <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA6ikf7yth3jIMgE4dC22ZGcOmza-5Lww&libraries=places"></script> -->
+        </div>
+      </div>
     </section>
+
+    <section class="socialMedia">
+      <div class="container">
+        <header>
+          <h4>Share your experience with friends:</h4>
+        </header>
+        <div class="logos">
+          <div class="facebook">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pinterest">
+            <a href="">
+              <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="twitter">
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
     <footer>
       <div class="container">
-        <p>Copyright 2014 | All rights reserved. - Sit On Chair</p>
-        <div class="footerRight">
-          <div class="footerLogos">
-            <div class="flickr">
-              <!-- <a href="">
-                <img src="../images/flickr.png" alt="fr">
-              </a> -->
-            </div>
-            <div class="vimeo">
-              <!-- <a href="">
-                <img src="../images/vimeo.png" alt="vimeo">
-              </a> -->
-            </div>
-            <div class="pinterest">
-              <!-- <a href="">
-                <img src="../images/pinterest.png" alt="pinterest">
-              </a> -->
-            </div>
-            <div class="twitter">
-              <!-- <a href="">
-                <img src="../images/twitter.png" alt="twitter">
-              </a> -->
-            </div>
+        <p>Copyright 2017 | All rights reserved.</p>
 
-          </div>
-          <div class="mainLogo">SIT <span>ON</span> CHAIR</div>
-        </div>
+
+
       </div>
+      <div class="miniLogo">TRIPPIE</div>
     </footer>
+    <script src="js/jquery-3.2.0.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
 
   </body>
 </html>

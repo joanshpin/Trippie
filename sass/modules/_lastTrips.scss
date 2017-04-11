@@ -1,0 +1,34 @@
+.lastTrips {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .lastTrip {
+      width: 50%;
+      height: 25vw;
+      @media (min-width: $firstCheckPoint) {
+        width: 33.33%;
+      }
+    }
+  }
+}
+.map {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh;
+      width: 100%;
+    }
+    #map {
+      height: 40vh;
+      width: 100%;
+    }
+  }
+}

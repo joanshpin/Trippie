@@ -22,7 +22,6 @@ html {
 header {
 	height: 30vh;
 	background-color: $firstBcgColor;
-	border: 1px solid pink;
 }
 
 /*NAVIGATION*/
@@ -63,7 +62,6 @@ nav {
 	height: 80%;
 	.container {
 		height: 100%;
-		// border: 1px solid blue;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -75,5 +73,4 @@ nav {
 			}
 		}
 	}
-
 }

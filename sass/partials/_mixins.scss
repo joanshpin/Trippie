@@ -1,14 +1,12 @@
-@mixin gradient {
+@mixin gradient ($color1, $color2, $color3) {
 	background: #fff;
 	/* For browsers that do not support gradients */
-	background: -webkit-linear-gradient(white, white, $backgroundColor);
-	/* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(white, white, $backgroundColor);
-	/* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(white, white, $backgroundColor);
-	/* For Firefox 3.6 to 15 */
-	background: linear-gradient(white, white, $backgroundColor);
-	/* Standard syntax */
+	background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, $color1, $color2, $color3); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $color1, $color2, $color3); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $color1, $color2, $color3); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $color1, $color2, $color3); /* Standard syntax */
+
 }
 
 @mixin display {
