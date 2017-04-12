@@ -43,14 +43,14 @@ nav {
 
 	.menu {
 		i {
-			@media (min-width: $firstCheckPoint) {
+			@media (min-width: $secondCheckPoint) {
 				display: none;
 			}
 		}
 		.mainMenu {
 			li {
 				display: none;
-				@media (min-width: $firstCheckPoint) {
+				@media (min-width: $secondCheckPoint) {
 					display: inline;
 				}
 			}

@@ -2,9 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="description" content="Planning trips app">
+    <meta name="keywords" content="Travel, trip, places">
+    <meta name="author" content="Joanna Szpinda">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="css/reset.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/googlemap.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase-database.js"></script>
+    <script src="js/firebase.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
 
     <title></title>
   </head>
@@ -39,60 +48,60 @@
         <h3 class="planTitle">Plan your next trip!</h3>
         <div class="planData">
 
-          <div class="place">
-            <h4>Place: <input type="text"><span></span></h4>
-            <button type="button">Add</button>
+          <div id="titleOfTrip" class="planPart">
+            <h4>Name of the trip: <input type="text"><span></span></h4>
+            <button type="button"><i class="fa fa-check" aria-hidden="true"></i></button>
           </div>
 
-          <div class="dates">
+          <div id="addressDiv" class="planPart">
+            <h4>Address: <input type="text" id="address"><span></span></h4>
+            <button type="button" id="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="dates1" class="planPart">
             <h4>Arrival date: <input type="date"><span></span></h4>
-            <button type="button">Add</button>
+            <button type="button"><i class="fa fa-check" aria-hidden="true"></i></button>
           </div>
 
-          <div class="dates">
+          <div id="dates2" class="planPart">
             <h4>Departure date: <input type="date"><span></span></h4>
-            <button type="button">Add</button>
+            <button type="button"><i class="fa fa-check" aria-hidden="true"></i></button>
           </div>
 
-          <div class="transport">
+          <div id="transport" class="planPart">
             <h4>Transport:
-              <select name="transport">
-                <option value="plane">by plane</option>
-                <option value="car">by car</option>
-                <option value="bus">by bus</option>
-                <option value="boat">by boat</option>
-              </select>
-              <span></span></h4>
-            <button type="button">Add</button>
+              <input type="text"><span></span></h4>
+            <button type="button"><i class="fa fa-check" aria-hidden="true"></i></button>
           </div>
 
-          <div class="accomodation">
+          <div id="accomodation" class="planPart">
             <h4>Accomodation: <input type="text"><span></span></h4>
-            <button type="button">Add</button>
+            <button type="button"><i class="fa fa-check" aria-hidden="true"></i></button>
           </div>
 
 
 
         </div>
-        <button type="button" class="addMarker">Dodaj do mapy</button>
+        <button type="button" id="submitTripPlan">Dodaj do mapy</button>
       </div>
 
     </section>
 
     <section class="lastTrips">
-      <div class="container">
-        <div class="lastTrip">
-        </div>
-        <div class="lastTrip">
-        </div>
-        <div class="lastTrip">
-        </div>
-        <div class="lastTrip">
-        </div>
-        <div class="lastTrip">
-        </div>
-        <div class="lastTrip">
-        </div>
+      <header>
+        <h3>Your last trips!</h3>
+      </header>
+      <div class="lastTrip">
+      </div>
+      <div class="lastTrip">
+      </div>
+      <div class="lastTrip">
+      </div>
+      <div class="lastTrip">
+      </div>
+      <div class="lastTrip">
+      </div>
+      <div class="lastTrip">
       </div>
     </section>
 
@@ -101,11 +110,14 @@
         <header>
           <h3>Your places!</h3>
         </header>
-        <div id="map">
+
           <!-- google maps api-->
+          <!-- <div id="floating-panel">
+            <input id="address" type="textbox" value="Sydney, NSW">
+            <input id="submit" type="button" value="Geocode">
+          </div> -->
+          <div id="map"></div>
           <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA6ikf7yth3jIMgE4dC22ZGcOmza-5Lww&callback=initMap"> </script>
-          <!-- google maps api to add places-->
-          <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA6ikf7yth3jIMgE4dC22ZGcOmza-5Lww&libraries=places"></script> -->
         </div>
       </div>
     </section>
@@ -113,7 +125,7 @@
     <section class="socialMedia">
       <div class="container">
         <header>
-          <h4>Share your experience with friends:</h4>
+          <h3>Share your experience with friends:</h3>
         </header>
         <div class="logos">
           <div class="facebook">
@@ -140,14 +152,14 @@
     <footer>
       <div class="container">
         <p>Copyright 2017 | All rights reserved.</p>
-
-
-
       </div>
       <div class="miniLogo">TRIPPIE</div>
     </footer>
-    <script src="js/jquery-3.2.0.js" type="text/javascript"></script>
-    <script src="js/app.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+<script>
+
+</script>
+
 
   </body>
 </html>
