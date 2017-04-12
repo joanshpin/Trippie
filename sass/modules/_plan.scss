@@ -35,18 +35,19 @@
 					outline:0;
 					}
 				input {
-					width: 100%;
+					width: 50%;
 					font-size: 1em;
 					color: white;
 					border: 0;
 				  outline: 0;
 				  background: transparent;
 				  border-bottom: 1px solid #ddd;
-  				transition: border 0.3s;
+  				transition: all 0.3s;
 					display: block;
 					}
 				input:focus {
 				  border-bottom: 1px solid $accentColor;
+					width: 95%;
 					}
 				span {
 					width: 70vw;

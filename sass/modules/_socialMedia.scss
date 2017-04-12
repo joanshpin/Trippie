@@ -1,11 +1,4 @@
-.socialMedia .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  // height: 20vh;
-  border: 1px solid pink;
-  // width: 100%;
+.socialMedia {
   header {
     display: flex;
     justify-content: center;
@@ -15,23 +8,34 @@
     border: 1px solid green;
 
   }
-}
-.logos {
-  width: 50%;
-  // height: 20vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  div {
-    width: 33.33%;
-    i {
-      text-align: center;
-      font-size: 1.5em;
-      padding: 10px 20px;
-      width: 100%;
-      // @include gradient(white, $accentColor, white);
-      color: $accentColor;
-      border: 1px solid $accentColor;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    // height: 20vh;
+    border: 1px solid pink;
+    // width: 100%;
+
+  }
+  .logos {
+    width: 50%;
+    // height: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    div {
+      width: 33.33%;
+      i {
+        text-align: center;
+        font-size: 1.5em;
+        padding: 10px 20px;
+        width: 100%;
+        // @include gradient(white, $accentColor, white);
+        color: $accentColor;
+        border: 1px solid $accentColor;
+      }
     }
   }
+
 }
