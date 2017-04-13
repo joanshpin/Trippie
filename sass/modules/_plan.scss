@@ -44,6 +44,7 @@
 				  border-bottom: 1px solid #ddd;
   				transition: all 0.3s;
 					display: block;
+					overflow: hidden;
 					}
 				input:focus {
 				  border-bottom: 1px solid $accentColor;
@@ -62,7 +63,7 @@
 				border-radius: 2px;
 				background-color: $secondBcgColor;
 				color: $accentColor;
-				margin: 0 0.2em;
+				margin: 0.7em 0.2em 0 0.2em;
 				}
 			button:focus {
 				outline:0;

@@ -1,8 +1,8 @@
-
+var map;
 //Google geocoding
 function initMap() {
   var krakow = {lat: 50.061676, lng: 19.937770};
-  var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: krakow });
+  map = new google.maps.Map(document.getElementById('map'), { zoom: 1, center: krakow });
   var geocoder = new google.maps.Geocoder();
   var submitAddress = document.getElementById('submit');
 
@@ -18,7 +18,7 @@ function geocodeAddress(geocoder, resultsMap) {
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
       resultsMap.setCenter(results[0].geometry.location);
-      console.log(results[0].geometry.location);
+      // console.log(results[0].geometry.location);
       var marker = new google.maps.Marker({ map: resultsMap, position: results[0].geometry.location });
       //szerokosc i dlugosc geograficzna dla podanego adresu przypisana do elementu span w którym jest adres
       spanAddress.dataset.lat = results[0].geometry.location.lat();

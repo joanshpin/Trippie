@@ -40,23 +40,99 @@ nav {
 	.logo {
 
 	}
+}
 
-	.menu {
-		i {
-			@media (min-width: $secondCheckPoint) {
-				display: none;
-			}
+.menu {
+	i.fa-bars {
+		font-size: 1.2em;
+		// margin: 0 1em;
+		cursor: pointer;
+		@media (min-width: $firstCheckPoint) {
+			display: none;
 		}
-		.mainMenu {
-			li {
+	}
+}
+.mainMenu {
+	display: none;
+	@media (min-width: $firstCheckPoint) {
+		display: inline-block;
+	}
+	li {
+		display: inline-block;
+		cursor: pointer;
+		a {
+			text-decoration: none;
+			color: white;
+			i {
+			color: white;
+			@media (min-width: $firstCheckPoint) {
+				display: inline-block;
+				font-size: 1.2em;
+				margin: 0 1em;
+				}
+			@media(min-width: $secondCheckPoint) {
 				display: none;
-				@media (min-width: $secondCheckPoint) {
-					display: inline;
 				}
 			}
 		}
 	}
 }
+
+li h3 {
+	display: none;
+	// margin: 0 1em;
+	padding: 0 1em;
+	@media (min-width: $secondCheckPoint) {
+		display: inline-block;
+	}
+}
+
+div.line {
+	margin-left: 1em;
+	text-align: center;
+	display: block;
+	height: 0.2em;
+	width: 4em;
+	background-color: $accentColor;
+	transition: all 3s ease-in-out;
+}
+li h3:hover + div.line {
+	opacity: 1;
+	width: 7em;
+}
+
+.mainMenu.show {
+	position: absolute;
+  top: 3.5em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-color: #454545;
+  padding: 3px;
+  right: 1em;
+	li {
+		display: inline-block;
+		cursor: pointer;
+		margin: 5px 0;
+		i {
+			display: none;
+		}
+		h3 {
+			text-align: right;
+			display: block;
+			margin: 0 1em;
+			&::after {
+				content: "";
+				display: block;
+				height: 0.2em;
+				width: 7em;
+				background-color: $accentColor;
+			}
+		}
+	}
+}
+
 
 .intro {
 	height: 80%;

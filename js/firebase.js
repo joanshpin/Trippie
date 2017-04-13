@@ -11,12 +11,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
   //call to firebase
   var app = firebase.initializeApp(config);
-  var cities = app.database().ref('cities');
-  // cities.on("value", function(data) {
-  //     console.log(data.val());
-  // }, function (error) {
-  //     console.log("Error: " + error.code);
-  // });
+  // var cities = app.database().ref('cities');
+  var myPlaces = app.database().ref("places/myPlaces");
+
 
   var submitTripPlan = document.getElementById("submitTripPlan");
   // console.log(submitTripPlan, 'submitTripPlan');
@@ -28,12 +25,11 @@ document.addEventListener('DOMContentLoaded', function(){
     var dates2Val = document.querySelector("#dates2 h4 span").innerText;
     var transportVal = document.querySelector("#transport h4 span").innerText;
     var acoomodationVal = document.querySelector("#accomodation h4 span").innerText;
-    var latVal = document.querySelector("#titleOfTrip h4 span").dataset.lat;
-    var lngVal = document.querySelector("#titleOfTrip h4 span").dataset.lng;
+    var latVal = document.querySelector("#addressDiv h4 span").dataset.lat;
+    var lngVal = document.querySelector("#addressDiv h4 span").dataset.lng;
     var urlVal = document.querySelector("#picture h4 span").innerText;
 
-    var myPlaces = app.database().ref("places/myPlaces");
-    myPlaces.push({
+    var newPlace = myPlaces.push({
       "name of trip": titleVal,
       "place": addressVal,
       "arrival date": dates1Val,
@@ -44,7 +40,63 @@ document.addEventListener('DOMContentLoaded', function(){
       "lat": latVal,
       "lng": lngVal
     });
+    var newKey = (newPlace.key);
 
-  })
+  });
+
+  myPlaces.on("value", function(data) {
+    var obj = data.val();
+    var counter = 0;
+    var counter1 = obj[prop];
+    var arr = [];
+
+    //adding background image to div
+    for (var prop in obj) {
+      arr.push(obj[prop]); }
+
+
+
+    for (var i = arr.length-1; i >= arr.length-6; i--) {
+      var counter = arr.length -i;
+      var lastTrip = document.querySelector("#lastTrip"+counter);
+      var lastTripName = document.querySelector("#lastTrip"+counter+" h3");
+
+      var lastTripUrl = arr[i]["url"];
+      var lastTripTitle = arr[i]["name of trip"]
+
+      if (lastTripUrl != "" ) {
+        lastTrip.style.backgroundImage = "url("+lastTripUrl+")";
+        lastTripName.innerText = lastTripTitle;
+
+      }
+    } //closing first iteration
+
+
+    var places = [];
+    for (var i = 0; i < arr.length; i++) {
+      var lastTripTitle = arr[i]["name of trip"]
+      var latVal = arr[i].lat;
+      var lngVal = arr[i].lng;
+      var trip = [lastTripTitle, latVal, lngVal, i];
+      setMarker(trip);
+    }
+
+  }, function (error) {
+      console.log("Error: " + error.code);
+  });
+
+
+    function setMarker(trip) {
+
+            var beach = trip;
+            // console.log(beach);
+            var marker = new google.maps.Marker({
+              position: {lat: parseFloat(beach[1]), lng: parseFloat(beach[2])},
+              map: map,
+              title: beach[0],
+              zIndex: beach[3]
+            });
+          }
+
 
 }); //closing DOM
