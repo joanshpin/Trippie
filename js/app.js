@@ -56,4 +56,6 @@ document.addEventListener('DOMContentLoaded', function(){
     mainMenu.classList.toggle("show");
   })
 
+
+
 }); // closing DOM

@@ -21,6 +21,10 @@ html {
 /*HEADER*/
 header {
 	height: 30vh;
+	// background-image: url("../images/wallup.jpg");
+	// background-position: center;
+	// background-size: cover;
+	// background-repeat: no-repeat;
 	background-color: $firstBcgColor;
 }
 
@@ -61,6 +65,10 @@ nav {
 		display: inline-block;
 		cursor: pointer;
 		a {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			justify-content: flex-end;
 			text-decoration: none;
 			color: white;
 			i {
@@ -81,24 +89,40 @@ nav {
 li h3 {
 	display: none;
 	// margin: 0 1em;
-	padding: 0 1em;
+	// padding: 0 1em;
 	@media (min-width: $secondCheckPoint) {
 		display: inline-block;
+		// margin: 0 1em;
+		padding: 0 1em;
 	}
 }
 
 div.line {
-	margin-left: 1em;
-	text-align: center;
-	display: block;
+	margin-right: 1em;
 	height: 0.2em;
-	width: 4em;
+	width: 3em;
 	background-color: $accentColor;
-	transition: all 3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	@media (min-width: $firstCheckPoint) {
+		display: none;
+		// width: 3.5em;
+		// margin-left: 1em;
+		// text-align: center;
+	}
+	@media (min-width: $secondCheckPoint ) {
+		display: block;
+		display: 3em;
+		margin-left: 1em;
+	}
 }
 li h3:hover + div.line {
-	opacity: 1;
 	width: 7em;
+	@media (min-width: $firstCheckPoint) {
+		// display: none;
+	}
+	@media (min-width: $secondCheckPoint) {
+		width: 5.5em;
+	}
 }
 
 .mainMenu.show {
@@ -122,13 +146,6 @@ li h3:hover + div.line {
 			text-align: right;
 			display: block;
 			margin: 0 1em;
-			&::after {
-				content: "";
-				display: block;
-				height: 0.2em;
-				width: 7em;
-				background-color: $accentColor;
-			}
 		}
 	}
 }

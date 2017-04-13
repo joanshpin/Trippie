@@ -67,9 +67,16 @@ document.addEventListener('DOMContentLoaded', function(){
       if (lastTripUrl != "" ) {
         lastTrip.style.backgroundImage = "url("+lastTripUrl+")";
         lastTripName.innerText = lastTripTitle;
-
       }
+
     } //closing first iteration
+
+    // var lastTripDivs = document.querySelectorAll(".lastTrip");
+    // for (var i = 0; i < lastTripDivs.length; i++) {
+    //   if (this.style.backgroundImage = "url(../images/lanzarote.jpeg)") {
+    //     this.style.display = none;
+    //   }
+    // }
 
 
     var places = [];
@@ -87,9 +94,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     function setMarker(trip) {
-
             var beach = trip;
-            // console.log(beach);
             var marker = new google.maps.Marker({
               position: {lat: parseFloat(beach[1]), lng: parseFloat(beach[2])},
               map: map,

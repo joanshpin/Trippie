@@ -1,6 +1,10 @@
 .plan {
 	height: 70vh;
-	background-color: $secondBcgColor;
+	// background-color: $secondBcgColor;
+	background-image: url("../images/wall.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	.container {
 		height: 100%;
 		color: white;

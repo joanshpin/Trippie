@@ -3,12 +3,14 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  border-bottom: 3px solid $secondBcgColor;
   header {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
     width: 100%;
+    border-bottom: 3px solid $secondBcgColor;
   }
   .lastTrip {
     width: 100%;
@@ -20,6 +22,10 @@
     justify-content: center;
     align-items: flex-end;
     transition: all 0.3s;
+    border-top: 1px solid $secondBcgColor;
+    border-bottom: 1px solid $secondBcgColor;
+    filter: brightness(70%);
+
     // -webkit-filter: grayscale(50%); /* Safari */
     // filter: grayscale(50%);
     @media (min-width: $firstCheckPoint) {
@@ -46,7 +52,7 @@
     @include gradientHorizontal (transparent, $transparentBlack, black)
     display: block;
     position: absolute;
-    border-bottom: 1px solid white;
+    // border-bottom: 1px solid white;
     @media (min-width: $firstCheckPoint) {
       width: 50%;
     }
