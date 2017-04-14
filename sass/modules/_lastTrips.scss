@@ -3,16 +3,17 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  border-bottom: 3px solid $secondBcgColor;
+  // border-bottom: 3px solid $secondBcgColor;
   header {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
     width: 100%;
-    border-bottom: 3px solid $secondBcgColor;
+    // border-bottom: 3px solid $secondBcgColor;
   }
   .lastTrip {
+    cursor: pointer;
     width: 100%;
     height: 30vw;
     background-image: url(../images/lanzarote.jpeg);
@@ -59,5 +60,72 @@
     @media (min-width: $thirdCheckPoint) {
       width: 33.33%;
     }
+  }
+}
+.lastTrip.hidden {
+  display: none;
+}
+.hidden {
+  display: none;
+}
+.shown {
+  display: block;
+  background-color: $backgroundColor;
+  background-position: center;
+  background-size: cover;
+  height: 90vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  // height: 100%;
+  h3 {
+    color: white;
+    font-size: 1.5em;
+    z-index: 3;
+  }
+  h2 {
+    color: white;
+    font-size: 1.7em;
+    z-index: 3;
+
+  }
+}
+.lastTripSelected {
+  div.shadow {
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: transparent;
+    transition: 0.5s all;
+    h2, h3 {
+      opacity: 0;
+      transition: 0.5s all;
+    }
+  }
+  div.shadow:hover {
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    background: $transparentBlack;
+    // @include gradientHorizontal (transparent, $transparentBlack2, transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  div.shadow:hover h2 {
+    opacity: 1;
+  }
+  div.shadow:hover h3 {
+    opacity: 1;
   }
 }

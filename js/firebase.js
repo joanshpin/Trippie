@@ -50,34 +50,35 @@ document.addEventListener('DOMContentLoaded', function(){
     var counter1 = obj[prop];
     var arr = [];
 
-    //adding background image to div
+    //przypisanie wartoscie z firebase do arraya
     for (var prop in obj) {
       arr.push(obj[prop]); }
 
-
-
+      //adding background and title to lastTrips
     for (var i = arr.length-1; i >= arr.length-6; i--) {
       var counter = arr.length -i;
       var lastTrip = document.querySelector("#lastTrip"+counter);
       var lastTripName = document.querySelector("#lastTrip"+counter+" h3");
-
+      var lastTripTitle = arr[i]["name of trip"];
+      var lastTripWhere = arr[i]["place"];
+      var lastTripWhen1 = arr[i]["arrival date"];
+      var lastTripWhen2 = arr[i]["departure date"];
+      var lastTripTransport = arr[i]["transport"];
+      var lastTripAccomodation = arr[i]["accomodation"];
       var lastTripUrl = arr[i]["url"];
-      var lastTripTitle = arr[i]["name of trip"]
 
       if (lastTripUrl != "" ) {
         lastTrip.style.backgroundImage = "url("+lastTripUrl+")";
         lastTripName.innerText = lastTripTitle;
+        lastTrip.dataset.where = lastTripWhere;
+        lastTrip.dataset.date1 = lastTripWhen1;
+        lastTrip.dataset.date2 = lastTripWhen2;
+        lastTrip.dataset.transport = lastTripTransport;
+        lastTrip.dataset.accomodation = lastTripAccomodation;
+        lastTrip.dataset.url = lastTripUrl;
       }
 
     } //closing first iteration
-
-    // var lastTripDivs = document.querySelectorAll(".lastTrip");
-    // for (var i = 0; i < lastTripDivs.length; i++) {
-    //   if (this.style.backgroundImage = "url(../images/lanzarote.jpeg)") {
-    //     this.style.display = none;
-    //   }
-    // }
-
 
     var places = [];
     for (var i = 0; i < arr.length; i++) {
@@ -93,15 +94,15 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
 
-    function setMarker(trip) {
-            var beach = trip;
-            var marker = new google.maps.Marker({
-              position: {lat: parseFloat(beach[1]), lng: parseFloat(beach[2])},
-              map: map,
-              title: beach[0],
-              zIndex: beach[3]
-            });
-          }
+  function setMarker(trip) {
+    var beach = trip;
+    var marker = new google.maps.Marker({
+      position: {lat: parseFloat(beach[1]), lng: parseFloat(beach[2])},
+      map: map,
+      title: beach[0],
+      zIndex: beach[3]
+    });
+  }
 
 
 }); //closing DOM
