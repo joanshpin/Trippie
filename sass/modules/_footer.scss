@@ -5,4 +5,12 @@ footer .container {
   height: 10vh;
   width: 100vw;
   background-color: $firstBcgColor;
+  .miniLogo {
+		background-image: url(../images/logo.png);
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 5em;
+		height: 2em;
+	}
 }
