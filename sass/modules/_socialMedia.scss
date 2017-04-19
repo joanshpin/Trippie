@@ -31,10 +31,11 @@
         padding: 10px 20px;
         width: 100%;
         color: $accentColor;
-        border: 1px solid $accentColor;
         border-radius: 2px;
         &:hover {
     				filter: brightness(150%);
+            border: 1px solid $accentColor;
+
             // border: 1px solid white;
     			}
       }

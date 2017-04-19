@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function(){
     btns[i].addEventListener("click", function() {
       //nie ma jeszcze nic wpisanego
        children = this.previousElementSibling.children;
+       sibling = this.parentElement.nextElementSibling;
+      //  console.log(sibling);
 
       if (this.innerHTML != '<i class="fa fa-pencil" aria-hidden="true"></i>') {
         if (children[0].value.length > 0) {
@@ -14,9 +16,12 @@ document.addEventListener('DOMContentLoaded', function(){
           children[1].innerText = spanVal;
           children[0].style.display = "none";
           this.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
+          sibling.classList.remove("msgShown");
         }
         else {
-          alert("please fill the blanks")
+          // console.log(sibling);
+          sibling.classList.add("msgShown");
+          // alert("please fill the blanks")
         }
         //ikonka już jest zmieniona na edytowanie
       } else {

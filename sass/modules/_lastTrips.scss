@@ -115,8 +115,8 @@
     width: 100%;
     position: absolute;
     z-index: 2;
-    background: $transparentBlack;
-    // @include gradientHorizontal (transparent, $transparentBlack2, transparent);
+    // background: $transparentBlack;
+    @include gradientHorizontal (transparent, $transparentBlack2, transparent);
     display: flex;
     justify-content: center;
     align-items: center;
