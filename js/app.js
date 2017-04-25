@@ -1,36 +1,51 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-   planData = document.querySelector(".planData");
-   btns = planData.querySelectorAll(".planData button");
+  // plan data section
+  let planData = document.querySelector(".planData");
+  //buttons in plan trip sections
+  let btns = planData.querySelectorAll(".planData button");
 
+//event listener for buttons in plan trip section
   for ( i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
-      //nie ma jeszcze nic wpisanego
-       children = this.previousElementSibling.children;
-       sibling = this.parentElement.nextElementSibling;
-      //  console.log(sibling);
+      //nothing is in input
+       let children = this.previousElementSibling.children;
+       let sibling = this.parentElement.nextElementSibling;
 
+      //if icon NOT changed to pencil yet
       if (this.innerHTML != '<i class="fa fa-pencil" aria-hidden="true"></i>') {
+        // if there is something in text input
         if (children[0].value.length > 0) {
-           spanVal = children[0].value;
+          // value in text input
+          let spanVal = children[0].value;
+          // assignment this value to span near input, which is empty before
           children[1].innerText = spanVal;
+          // hiding input
           children[0].style.display = "none";
+          // changing icon to pencil??????????
           this.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
+          //hiding error message
           sibling.classList.remove("msgShown");
         }
+        // if input is empty
         else {
-          // console.log(sibling);
+          // show error message
           sibling.classList.add("msgShown");
-          // alert("please fill the blanks")
         }
-        //ikonka już jest zmieniona na edytowanie
+        // if icon IS changed to pencil (when it has been changed before)
       } else {
+        // if there is something in text input
         if (children[0].value.length > 0) {
-           spanVal = children[0].value;
-          spanVal = " ";
+          // value in text input
+          let spanVal = children[0].value;
+          // cleaning value in text input
+          spanVal = "";
+          // showing input again
           children[0].style.display = "block";
+          //changing icon from pencil to check again
           this.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
         }
+        // if there is nothing in the
         else {
           alert("please fill the blanks")
         }
