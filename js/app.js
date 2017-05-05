@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-  // plan data section
+
+  //BUTTONS IN PLANDATA SECTION EVENTLISTENER
+
   let planData = document.querySelector(".planData");
-  //buttons in plan trip sections
   let btns = planData.querySelectorAll(".planData button");
 
-//event listener for buttons in plan trip section
   for ( i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
       //nothing is in input
@@ -31,88 +31,95 @@ document.addEventListener('DOMContentLoaded', function(){
         else {
           // show error message
           sibling.classList.add("msgShown");
-        }
+        };
         // if icon IS changed to pencil (when it has been changed before)
       } else {
-        // if there is something in text input
-        if (children[0].value.length > 0) {
-          // value in text input
-          let spanVal = children[0].value;
-          // cleaning value in text input
-          spanVal = "";
-          // showing input again
-          children[0].style.display = "block";
-          //changing icon from pencil to check again
-          this.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
-        }
-        // if there is nothing in the
-        else {
-          alert("please fill the blanks")
-        }
-      }
-    }); //closing addEventListener click
-  } //closing loop for btns
+        // cleaning value in span input
+        children[1].innerText = "";
+        // showing input again
+        children[0].style.display = "block";
+        //changing icon from pencil to check again
+        this.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+      };
+    }); //closing addEventListener click for btns
+  }; //closing loop for btns
 
 
-   submitTripPlan = document.getElementById("submitTripPlan");
+
+  //SUBMITTING  ------------------ TO IMPROVE
+
+  let submitTripPlan = document.getElementById("submitTripPlan");
   submitTripPlan.addEventListener("click", function() {
-    submitTripPlan.innerText = "Dodano"
-     vals = document.querySelectorAll(".planData span");
+    submitTripPlan.innerText = "Your plan is added" //changing text in submit button
+    let vals = document.querySelectorAll(".planData span"); //clering spans
     for ( i = 0; i < vals.length; i++) {
       vals[i].innerText = " ";
-    }
-    // for ( j = 0; j < btns.length; j++) {
-    //    children = this.previousElementSibling.children;
-    //   children[0].style.display = "block";
-    //
-    // }
+    };
+  }); //closing submitTripPlan event
+
+
+
+  //MENU BAR - showing and hiding by click ------------------ TO IMPROVE
+  let menuBars = document.querySelector(".fa-bars");
+  let mainMenu = document.querySelector(".mainMenu");
+  menuBars.addEventListener("click", function() {
+    mainMenu.classList.toggle("show");
   });
 
 
-   menuBars = document.querySelector(".fa-bars");
-   mainMenu = document.querySelector(".mainMenu")
-  menuBars.addEventListener("click", function() {
-    mainMenu.classList.toggle("show");
-  })
 
+  // LAST TRIPS CLICK-SHOW INFO - EVENT
 
-  // //adding data to big div in last trips
-   lastTripSelected = document.querySelector(".lastTripSelected");
-   lastTripDivs = document.querySelectorAll(".lastTrip");
+  //adding data to big div in last trips
+  let lastTripSelected = document.querySelector(".lastTripSelected"); //choosing from former trips
+  let lastTripDivs = document.querySelectorAll(".lastTrip"); //divs with class last trip, 6th of them
   for ( i = 0; i < lastTripDivs.length; i++) {
+    //get the informations about clicked one from attributes stored in object
     lastTripDivs[i].addEventListener("click", function () {
-       thisTitle = this.querySelector("h3").innerText;
-       thisWhere = this.dataset.where;
-       thisWhen1 = this.dataset.date1;
-       thisWhen2 = this.dataset.date2;
-       thisTransport = this.dataset.transport;
-       thisAccomodation = this.dataset.accomodation;
-       thisUrl = this.dataset.url;
-
+      let thisTitle = this.querySelector("h3").innerText;
+      let thisWhere = this.dataset.where;
+      let thisWhen1 = this.dataset.date1;
+      let thisWhen2 = this.dataset.date2;
+      let thisTransport = this.dataset.transport;
+      let thisAccomodation = this.dataset.accomodation;
+      let thisUrl = this.dataset.url;
+      // add to html and display all the info about clicked trip
       lastTripSelected.innerHTML = "<div class='shadow'><h2>"+thisTitle+" </h2> <h3> Where: "+thisWhere+" </h3> <h3> Arrival: "+thisWhen1+" </h3> <h3> Departure: "+thisWhen2+" </h3> <h3> Transport: "+thisTransport+" </h3> <h3> Accomodation: "+thisAccomodation+" </h3></div>"
-
+      // set the background from attribute
       lastTripSelected.style.backgroundImage = "url("+thisUrl+")";
       lastTripSelected.classList.remove("hidden");
       lastTripSelected.classList.add("shown");
+      // hide all the other lastTripDivs
       for ( i = 0; i < lastTripDivs.length; i++) {
         lastTripDivs[i].classList.add("hidden");
-      }
-
+      };
     });
-  }
-
+  };
+  //click event on opened lastTrip to close it
   lastTripSelected.addEventListener("click", function() {
     if (lastTripSelected.classList.contains("shown")) {
       lastTripSelected.classList.remove("shown");
       lastTripSelected.classList.add("hidden");
       lastTripSelected.innerHTML = "";
-    }
+    };
+    //showing whole list of lastTripDivs
     for ( i = 0; i < lastTripDivs.length; i++) {
       lastTripDivs[i].classList.remove("hidden");
-    }
-  })
+    };
+  }); //closing event lastTrip
 
 
+
+  //GET TODAYS DATE
+  function getTime() {
+    let now = new Date();
+    let year = now.getYear();
+    let month = now.getMonth();
+    let day = now.getDay();
+    console.log(now);
+    console.log(year + " : "+ month + " :" + day);
+  }
+  getTime();
 
 
 
