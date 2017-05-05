@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function(){
   var app = firebase.initializeApp(config);
   // var cities = app.database().ref('cities');
   var myPlaces = app.database().ref("places/myPlaces");
+  // changing myPlaces to two different categories
+  var myPlacesPlan = app.database().ref("places/myPlaces/planned");
+  var myPlacesMemory = app.database().ref("places/myPlaces/memorised");
 
 
   var submitTripPlan = document.getElementById("submitTripPlan");
@@ -32,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var newPlace = myPlaces.push({
       "name of trip": titleVal,
       "place": addressVal,
-      "arrival date": dates1Val,
+      "arrival date": Date.parse(dates1Val),
       "departure date": dates2Val,
       "transport": transportVal,
       "accomodation": acoomodationVal,
@@ -40,21 +43,26 @@ document.addEventListener('DOMContentLoaded', function(){
       "lat": latVal,
       "lng": lngVal
     });
-    var newKey = (newPlace.key);
-
+    // var newKey = (newPlace.key);
   });
 
+
+  //FOR EVERY CHANGE IN DATABASE
   myPlaces.on("value", function(data) {
+    //obj is object containing objects with data (contains trips)
     var obj = data.val();
-    var counter = 0;
-    var counter1 = obj[prop];
+    // var counter = 0;
+    // var counter1 = obj[prop];
     var arr = [];
 
-    //przypisanie wartoscie z firebase do arraya
+    //przypisanie wartosci z firebase do arraya
     for (var prop in obj) {
-      arr.push(obj[prop]); }
+      arr.push(obj[prop]);
+      }
+      console.log(arr);
 
-      //adding background and title to lastTrips
+
+      //adding background and title to lastTrips -data from array
     for (var i = arr.length-1; i >= arr.length-6; i--) {
       var counter = arr.length -i;
       var lastTrip = document.querySelector("#lastTrip"+counter);
