@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-  //SUBMITTING  ------------------ TO IMPROVE
+  //SUBMITTING  ------------------ TO IMPROVE, NOW YOU CAN ONLY DO IT ONCE
 
   let submitTripPlan = document.getElementById("submitTripPlan");
   submitTripPlan.addEventListener("click", function() {
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function(){
   //adding data to big div in last trips
   let lastTripSelected = document.querySelector(".lastTripSelected"); //choosing from former trips
   let lastTripDivs = document.querySelectorAll(".lastTrip"); //divs with class last trip, 6th of them
-  for ( i = 0; i < lastTripDivs.length; i++) {
+  for ( let i = 0; i < lastTripDivs.length; i++) {
     //get the informations about clicked one from attributes stored in object
     lastTripDivs[i].addEventListener("click", function () {
       let thisTitle = this.querySelector("h3").innerText;
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function(){
       lastTripSelected.classList.remove("hidden");
       lastTripSelected.classList.add("shown");
       // hide all the other lastTripDivs
-      for ( i = 0; i < lastTripDivs.length; i++) {
+      for ( let i = 0; i < lastTripDivs.length; i++) {
         lastTripDivs[i].classList.add("hidden");
       };
     });
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(){
       lastTripSelected.innerHTML = "";
     };
     //showing whole list of lastTripDivs
-    for ( i = 0; i < lastTripDivs.length; i++) {
+    for ( let i = 0; i < lastTripDivs.length; i++) {
       lastTripDivs[i].classList.remove("hidden");
     };
   }); //closing event lastTrip
@@ -116,8 +116,25 @@ document.addEventListener('DOMContentLoaded', function(){
     let year = now.getYear();
     let month = now.getMonth();
     let day = now.getDay();
-    console.log(now);
-    console.log(year + " : "+ month + " :" + day);
+    let milliseconds = now.getTime();
+
+    console.log(now); //Sun May 07 2017 20:58:22 GMT+0200 (CEST)
+    console.log(year + " : "+ month + " :" + day); //YEAR 117
+    console.log(now.getFullYear());
+    console.log(now.getMonth());
+    console.log(now.getDate()); //DAY
+    console.log(now.getTime()); //MILLISECONDS
+
+    let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    let newDate = new Date(Date.parse('2012-01-26T13:51:50.417-07:00'));
+    console.log(newDate.getFullYear() + " " + monthNames[newDate.getMonth()] + " " + newDate.getDate());
+
+    console.log(milliseconds);
+
+    let myDate = new Date (1393123820009); //podaje date wynikajaca z milisekund
+    console.log(myDate);
+
   }
   getTime();
 

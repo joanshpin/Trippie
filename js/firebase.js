@@ -24,57 +24,119 @@ document.addEventListener('DOMContentLoaded', function(){
     // console.log(submitTripPlan, 'submitTripPlan')
     var titleVal = document.querySelector("#titleOfTrip h4 span").innerText;
     var addressVal = document.querySelector("#addressDiv h4 span").innerText;
-    var dates1Val = document.querySelector("#dates1 h4 span").innerText;
-    var dates2Val = document.querySelector("#dates2 h4 span").innerText;
+    var dates1Val = Date.parse(document.querySelector("#dates1 h4 span").innerText);
+    var dates2Val = Date.parse(document.querySelector("#dates2 h4 span").innerText);
     var transportVal = document.querySelector("#transport h4 span").innerText;
     var acoomodationVal = document.querySelector("#accomodation h4 span").innerText;
     var latVal = document.querySelector("#addressDiv h4 span").dataset.lat;
     var lngVal = document.querySelector("#addressDiv h4 span").dataset.lng;
     var urlVal = document.querySelector("#picture h4 span").innerText;
 
-    var newPlace = myPlaces.push({
-      "name of trip": titleVal,
-      "place": addressVal,
-      "arrival date": Date.parse(dates1Val),
-      "departure date": dates2Val,
-      "transport": transportVal,
-      "accomodation": acoomodationVal,
-      "url": urlVal,
-      "lat": latVal,
-      "lng": lngVal
-    });
-    // var newKey = (newPlace.key);
+    let currentDate = new Date();
+    let currentMilliseconds = currentDate.getTime();
+
+    if (currentMilliseconds > dates1Val && currentMilliseconds > dates2Val) {
+      var newPlace = myPlacesMemory.push({
+        "name of trip": titleVal,
+        "place": addressVal,
+        "arrival date": dates1Val,
+        "departure date": dates2Val,
+        "transport": transportVal,
+        "accomodation": acoomodationVal,
+        "url": urlVal,
+        "lat": latVal,
+        "lng": lngVal
+      });
+    } else {
+      var newPlace = myPlacesPlan.push({
+        "name of trip": titleVal,
+        "place": addressVal,
+        "arrival date": dates1Val,
+        "departure date": dates2Val,
+        "transport": transportVal,
+        "accomodation": acoomodationVal,
+        "url": urlVal,
+        "lat": latVal,
+        "lng": lngVal
+      });
+    };
+
+    // var newKey = (newPlace.key); //key to new object in database
+
   });
 
 
   //FOR EVERY CHANGE IN DATABASE
   myPlaces.on("value", function(data) {
     //obj is object containing objects with data (contains trips)
-    var obj = data.val();
-    // var counter = 0;
-    // var counter1 = obj[prop];
-    var arr = [];
+    let obj = data.val(); //contains all data from myPlaces, every object
+    let objMemorised = data.val().memorised;
+    let objPlanned = data.val().planned;
 
+
+    //PLANS PART
+    //new array with attributes from firebase
+    var arrPlanned = [];
     //przypisanie wartosci z firebase do arraya
-    for (var prop in obj) {
-      arr.push(obj[prop]);
+    for (var prop in objPlanned) {
+      arrPlanned.push(objPlanned[prop]);
       }
-      console.log(arr);
+      console.log(arrPlanned);
+
+      arrPlanned.sort() //IT NEEDS TO SORT ARRAY BY ARRIVAL DATE aka objPlanned[prop][arrival date]
+
+      //adding background and title to lastTrips -data from array with memories
+    // for (var i = arrPlanned.length-1; i >= arrPlanned.length-6; i--) {
+    //   var counter = arrPlanned.length -i;
+    //   var plannedTrip = document.querySelector("#plannedTrip"+counter);
+    //   var plannedTripName = document.querySelector("#plannedTrip"+counter+" h3");
+    //   var plannedTripTitle = arrPlanned[i]["name of trip"];
+    //   var plannedTripWhere = arrPlanned[i]["place"];
+    //   var plannedTripWhen1 = arrPlanned[i]["arrival date"];
+    //   var plannedTripWhen2 = arrPlanned[i]["departure date"];
+    //   var plannedTripTransport = arrPlanned[i]["transport"];
+    //   var plannedTripAccomodation = arrPlanned[i]["accomodation"];
+    //   var plannedTripUrl = arrPlanned[i]["url"];
+    //
+    //   //assigning dataset attributes to data known from firebase
+    //   if (plannedTripUrl != "" ) {
+    //     plannedTrip.style.backgroundImage = "url("+lastTripUrl+")";
+    //     plannedTripName.innerText = lastTripTitle;
+    //     plannedTrip.dataset.where = lastTripWhere;
+    //     plannedTrip.dataset.date1 = lastTripWhen1;
+    //     plannedTrip.dataset.date2 = lastTripWhen2;
+    //     plannedTrip.dataset.transport = lastTripTransport;
+    //     plannedTrip.dataset.accomodation = lastTripAccomodation;
+    //     plannedTrip.dataset.url = lastTripUrl;
+    //   }
+    //
+    // } //closing first iteration OF PLANS
 
 
-      //adding background and title to lastTrips -data from array
-    for (var i = arr.length-1; i >= arr.length-6; i--) {
-      var counter = arr.length -i;
+
+
+    //MEMORIES PART
+    //new array with attributes from firebase
+    var arrMemorised = [];
+    //przypisanie wartosci z firebase do arraya
+    for (var prop in objMemorised) {
+      arrMemorised.push(objMemorised[prop]);
+      }
+
+      //adding background and title to lastTrips -data from array with memories
+    for (var i = arrMemorised.length-1; i >= arrMemorised.length-6; i--) {
+      var counter = arrMemorised.length -i;
       var lastTrip = document.querySelector("#lastTrip"+counter);
       var lastTripName = document.querySelector("#lastTrip"+counter+" h3");
-      var lastTripTitle = arr[i]["name of trip"];
-      var lastTripWhere = arr[i]["place"];
-      var lastTripWhen1 = arr[i]["arrival date"];
-      var lastTripWhen2 = arr[i]["departure date"];
-      var lastTripTransport = arr[i]["transport"];
-      var lastTripAccomodation = arr[i]["accomodation"];
-      var lastTripUrl = arr[i]["url"];
+      var lastTripTitle = arrMemorised[i]["name of trip"];
+      var lastTripWhere = arrMemorised[i]["place"];
+      var lastTripWhen1 = arrMemorised[i]["arrival date"];
+      var lastTripWhen2 = arrMemorised[i]["departure date"];
+      var lastTripTransport = arrMemorised[i]["transport"];
+      var lastTripAccomodation = arrMemorised[i]["accomodation"];
+      var lastTripUrl = arrMemorised[i]["url"];
 
+      //assigning dataset attributes to data known from firebase
       if (lastTripUrl != "" ) {
         lastTrip.style.backgroundImage = "url("+lastTripUrl+")";
         lastTripName.innerText = lastTripTitle;
@@ -86,22 +148,26 @@ document.addEventListener('DOMContentLoaded', function(){
         lastTrip.dataset.url = lastTripUrl;
       }
 
-    } //closing first iteration
+    } //closing first iteration OF MEMORIES
 
+
+
+    // ADDING PLACES TO GOOGLE MAP
     var places = [];
-    for (var i = 0; i < arr.length; i++) {
-      var lastTripTitle = arr[i]["name of trip"]
-      var latVal = arr[i].lat;
-      var lngVal = arr[i].lng;
+    for (var i = 0; i < arrMemorised.length; i++) {
+      var lastTripTitle = arrMemorised[i]["name of trip"]
+      var latVal = arrMemorised[i].lat;
+      var lngVal = arrMemorised[i].lng;
       var trip = [lastTripTitle, latVal, lngVal, i];
-      setMarker(trip);
+      setMarker(trip); //calling to function adding markers
     }
-
   }, function (error) {
       console.log("Error: " + error.code);
-  });
+
+  }); // closing on value firebase method
 
 
+  //ADDING MARKERS TO MAP
   function setMarker(trip) {
     var beach = trip;
     var marker = new google.maps.Marker({
