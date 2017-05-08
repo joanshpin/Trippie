@@ -14,32 +14,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
       //if icon NOT changed to pencil yet
       if (this.innerHTML != '<i class="fa fa-pencil" aria-hidden="true"></i>') {
-        // if there is something in text input
-        if (children[0].value.length > 0) {
-          // value in text input
-          let spanVal = children[0].value;
-          // assignment this value to span near input, which is empty before
-          children[1].innerText = spanVal;
-          // hiding input
-          children[0].style.display = "none";
-          // changing icon to pencil??????????
-          this.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
-          //hiding error message
-          sibling.classList.remove("msgShown");
+        if (children[0].value.length > 0) { // if there is something in text input
+          let spanVal = children[0].value; // value in text input
+          children[1].innerText = spanVal; // assignment this value to span near input, which is empty before
+          children[0].style.display = "none"; // hiding input
+          this.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>'; // changing icon to pencil??????????
+          sibling.classList.remove("msgShown"); //hiding error message
         }
-        // if input is empty
-        else {
-          // show error message
-          sibling.classList.add("msgShown");
+        else {         // if input is empty
+          sibling.classList.add("msgShown"); // show error message
         };
-        // if icon IS changed to pencil (when it has been changed before)
-      } else {
-        // cleaning value in span input
-        children[1].innerText = "";
-        // showing input again
-        children[0].style.display = "block";
-        //changing icon from pencil to check again
-        this.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+      } else { // if icon IS changed to pencil (when it has been changed before)
+        children[1].innerText = ""; // cleaning value in span input
+        children[0].style.display = "block"; // showing input again
+        this.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>'; //changing icon from pencil to check again
       };
     }); //closing addEventListener click for btns
   }; //closing loop for btns
@@ -47,10 +35,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   //SUBMITTING  ------------------ TO IMPROVE, NOW YOU CAN ONLY DO IT ONCE
+  /* the idea is, to show message, the plan/memory is in, and show the first view, like after the start of app*/
 
   let submitTripPlan = document.getElementById("submitTripPlan");
   submitTripPlan.addEventListener("click", function() {
-    submitTripPlan.innerText = "Your plan is added" //changing text in submit button
+    submitTripPlan.innerText = "YOUR TRIP IS IN NOW!" //changing text in submit button
     let vals = document.querySelectorAll(".planData span"); //clering spans
     for ( i = 0; i < vals.length; i++) {
       vals[i].innerText = " ";
@@ -110,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-  //GET TODAYS DATE
+  //GET TODAYS DATE - NOT USED ??YET??
   function getTime() {
     let now = new Date();
     let year = now.getYear();

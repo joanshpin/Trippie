@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     if (currentMilliseconds > dates1Val && currentMilliseconds > dates2Val) {
       var newPlace = myPlacesMemory.push({
-        "name of trip": titleVal,
+        "name_of_trip": titleVal,
         "place": addressVal,
         "arrival date": dates1Val,
         "departure date": dates2Val,
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     } else {
       var newPlace = myPlacesPlan.push({
-        "name of trip": titleVal,
+        "name_of_trip": titleVal,
         "place": addressVal,
         "arrival date": dates1Val,
         "departure date": dates2Val,
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function(){
     //   var counter = arrPlanned.length -i;
     //   var plannedTrip = document.querySelector("#plannedTrip"+counter);
     //   var plannedTripName = document.querySelector("#plannedTrip"+counter+" h3");
-    //   var plannedTripTitle = arrPlanned[i]["name of trip"];
+    //   var plannedTripTitle = arrPlanned[i]["name_of_trip"];
     //   var plannedTripWhere = arrPlanned[i]["place"];
     //   var plannedTripWhen1 = arrPlanned[i]["arrival date"];
     //   var plannedTripWhen2 = arrPlanned[i]["departure date"];
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function(){
       var counter = arrMemorised.length -i;
       var lastTrip = document.querySelector("#lastTrip"+counter);
       var lastTripName = document.querySelector("#lastTrip"+counter+" h3");
-      var lastTripTitle = arrMemorised[i]["name of trip"];
+      var lastTripTitle = arrMemorised[i]["name_of_trip"];
       var lastTripWhere = arrMemorised[i]["place"];
       var lastTripWhen1 = arrMemorised[i]["arrival date"];
       var lastTripWhen2 = arrMemorised[i]["departure date"];
