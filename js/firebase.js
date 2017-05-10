@@ -84,33 +84,39 @@ document.addEventListener('DOMContentLoaded', function(){
       console.log(arrPlanned);
 
       arrPlanned.sort() //IT NEEDS TO SORT ARRAY BY ARRIVAL DATE aka objPlanned[prop][arrival date]
+      console.log(arrPlanned);
+
 
       //adding background and title to lastTrips -data from array with memories
-    // for (var i = arrPlanned.length-1; i >= arrPlanned.length-6; i--) {
-    //   var counter = arrPlanned.length -i;
-    //   var plannedTrip = document.querySelector("#plannedTrip"+counter);
-    //   var plannedTripName = document.querySelector("#plannedTrip"+counter+" h3");
-    //   var plannedTripTitle = arrPlanned[i]["name_of_trip"];
-    //   var plannedTripWhere = arrPlanned[i]["place"];
-    //   var plannedTripWhen1 = arrPlanned[i]["arrival date"];
-    //   var plannedTripWhen2 = arrPlanned[i]["departure date"];
-    //   var plannedTripTransport = arrPlanned[i]["transport"];
-    //   var plannedTripAccomodation = arrPlanned[i]["accomodation"];
-    //   var plannedTripUrl = arrPlanned[i]["url"];
-    //
-    //   //assigning dataset attributes to data known from firebase
-    //   if (plannedTripUrl != "" ) {
-    //     plannedTrip.style.backgroundImage = "url("+lastTripUrl+")";
-    //     plannedTripName.innerText = lastTripTitle;
-    //     plannedTrip.dataset.where = lastTripWhere;
-    //     plannedTrip.dataset.date1 = lastTripWhen1;
-    //     plannedTrip.dataset.date2 = lastTripWhen2;
-    //     plannedTrip.dataset.transport = lastTripTransport;
-    //     plannedTrip.dataset.accomodation = lastTripAccomodation;
-    //     plannedTrip.dataset.url = lastTripUrl;
-    //   }
-    //
-    // } //closing first iteration OF PLANS
+    for (let i = arrPlanned.length-1; i >= arrPlanned.length-6; i--) {
+      let counter = arrPlanned.length -i;
+      console.log(counter);
+      let plannedTrip = document.querySelector("#plannedTrip"+counter);
+      // console.log(plannedTrip);
+      let plannedTripName = document.querySelector("#plannedTrip"+counter+" h3");
+      // console.log(plannedTripName);
+      console.log(arrPlanned[i]["name_of_trip"]);
+      let plannedTripTitle = arrPlanned[i]["name_of_trip"];
+      let plannedTripWhere = arrPlanned[i]["place"];
+      let plannedTripWhen1 = arrPlanned[i]["arrival date"];
+      let plannedTripWhen2 = arrPlanned[i]["departure date"];
+      let plannedTripTransport = arrPlanned[i]["transport"];
+      let plannedTripAccomodation = arrPlanned[i]["accomodation"];
+      let plannedTripUrl = arrPlanned[i]["url"];
+
+      //assigning dataset attributes to data known from firebase
+      if (plannedTripUrl != "" ) {
+        plannedTrip.style.backgroundImage = "url("+plannedTripUrl+")";
+        plannedTripName.innerText = plannedTripTitle;
+        plannedTrip.dataset.where = plannedTripWhere;
+        plannedTrip.dataset.date1 = plannedTripWhen1;
+        plannedTrip.dataset.date2 = plannedTripWhen2;
+        plannedTrip.dataset.transport = plannedTripTransport;
+        plannedTrip.dataset.accomodation = plannedTripAccomodation;
+        plannedTrip.dataset.url = plannedTripUrl;
+      }
+
+    } //closing first iteration OF PLANS
 
 
 
