@@ -85,18 +85,50 @@ document.addEventListener('DOMContentLoaded', function(){
       };
     });
   };
-  //click event on opened PLANNEDTRIPS to close it
-  plannedTripSelected.addEventListener("click", function() {
-    if (plannedTripSelected.classList.contains("shown")) {
-      plannedTripSelected.classList.remove("shown");
-      plannedTripSelected.classList.add("hidden");
-      plannedTripSelected.innerHTML = "";
-    };
-    //showing whole list of lastTripDivs
-    for ( let i = 0; i < plannedTripDivs.length; i++) {
-      plannedTripDivs[i].classList.remove("hidden");
-    };
-  }); //closing event PLANNEDTRIPS
+  // //click event on opened PLANNEDTRIPS to close it
+  // plannedTripSelected.addEventListener("click", function() {
+  //   if (plannedTripSelected.classList.contains("shown")) {
+  //     plannedTripSelected.classList.remove("shown");
+  //     plannedTripSelected.classList.add("hidden");
+  //     plannedTripSelected.innerHTML = "";
+  //   };
+  //   //showing whole list of lastTripDivs
+  //   for ( let i = 0; i < plannedTripDivs.length; i++) {
+  //     plannedTripDivs[i].classList.remove("hidden");
+  //   };
+  // }); //closing event PLANNEDTRIPS
+
+
+
+
+  //CAROUSEL FOR PLANNED TRIPS
+function carousel() {
+  var prev = document.querySelector("#prevPicture");
+  var next = document.querySelector("#nextPicture");
+  var picsList = document.querySelectorAll("ul.carousel li");
+
+  var visiblePic = 0;
+  picsList[visiblePic].classList.add("visible");
+
+  prev.addEventListener("click", function() {
+    picsList[visiblePic].classList.remove("visible");
+    visiblePic -= 1;
+    if (visiblePic < 0) {
+      visiblePic = picsList.length-1; }
+    picsList[visiblePic].classList.add("visible");
+  })
+
+  next.addEventListener("click", function() {
+    picsList[visiblePic].classList.remove("visible");
+    visiblePic += 1;
+    if (visiblePic > picsList.length-1) {
+      visiblePic = 0
+    }
+    picsList[visiblePic].classList.add("visible");
+    });
+  };
+  carousel();
+
 
 
 
@@ -170,6 +202,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
   }
   getTime();
+
+
+
+
+
+
+
 
 
 

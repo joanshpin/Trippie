@@ -9,8 +9,22 @@ document.addEventListener('DOMContentLoaded', function(){
     messagingSenderId: "73522637552"
   };
 
+
   //call to firebase
   var app = firebase.initializeApp(config);
+
+  //AUTHENTIFICATION
+  // const email = document.querySelector()
+  // authentification
+  // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // // Handle Errors here.
+  // var errorCode = error.code;
+  // var errorMessage = error.message;
+  // // ...
+  // });
+
+
+  // REACHING OUT TO NESTED FOLDERS IN FIREBASE DATABASE
   // var cities = app.database().ref('cities');
   var myPlaces = app.database().ref("places/myPlaces");
   // changing myPlaces to two different categories
@@ -18,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function(){
   var myPlacesMemory = app.database().ref("places/myPlaces/memorised");
 
 
+
+  // SUBMITTING TO FIREBASE DATABASE DATA TAKEN FROM PLAN SECTION
   var submitTripPlan = document.getElementById("submitTripPlan");
   // console.log(submitTripPlan, 'submitTripPlan');
   submitTripPlan.addEventListener("click", function() {
