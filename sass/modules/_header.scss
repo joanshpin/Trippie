@@ -84,10 +84,6 @@ nav {
 				display: inline-block;
 				font-size: 1.4em;
 				padding: 0 1em;
-				// border-left: 1px solid $accentColor;
-				// border-right: 1px solid $accentColor;
-
-
 				}
 			@media(min-width: $secondCheckPoint) {
 				display: none;
@@ -97,53 +93,25 @@ nav {
 	}
 }
 
-li h3 {
-	display: none;
-	color: $accentColor;
-	// margin: 0 1em;
-	// padding: 0 1em;
-	@media (min-width: $secondCheckPoint) {
-		display: inline-block;
-		// margin: 0 1em;
-		padding: 0 1.5em;
+.mainMenu {
+	li h3 {
+		display: none;
+		color: $accentColor;
+		@media (min-width: $secondCheckPoint) {
+			display: inline-block;
+			padding: 0 1.5em;
+		}
+	}
+
+	li h3:hover {
+		filter: brightness(150%);
+		color: $accentColor;
+		@media (min-width: $secondCheckPoint) {
+			border: 1px solid $accentColor;
+		}
 	}
 }
 
-// div.line {
-// 	margin-right: 1em;
-// 	height: 0.2em;
-// 	width: 3em;
-// 	background-color: $accentColor;
-// 	transition: all 0.3s ease-in-out;
-// 	@media (min-width: $firstCheckPoint) {
-// 		display: none;
-// 		// width: 3.5em;
-// 		// margin-left: 1em;
-// 		// text-align: center;
-// 	}
-// 	@media (min-width: $secondCheckPoint ) {
-// 		display: block;
-// 		display: 3em;
-// 		margin-left: 1em;
-// 	}
-// }
-// li h3:hover + div.line {
-// 	width: 7em;
-// 	@media (min-width: $firstCheckPoint) {
-// 		// display: none;
-// 	}
-// 	@media (min-width: $secondCheckPoint) {
-// 		width: 5.5em;
-// 	}
-// }
-
-li h3:hover {
-	filter: brightness(150%);
-	color: $accentColor;
-	@media (min-width: $secondCheckPoint) {
-		border: 1px solid $accentColor;
-	}
-}
 
 .mainMenu.show {
 	position: absolute;
@@ -190,7 +158,6 @@ li h3:hover {
 			background-repeat: no-repeat;
 			width: 8em;
 			height: 4em;
-			// border: 1px solid green;
 		}
 	}
 }
