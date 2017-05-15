@@ -12,6 +12,29 @@
     width: 100%;
   }
 
+
+	.wrap {
+		overflow: hidden;
+		ul.carousel {
+			display: flex;
+		  list-style: none;
+		  margin: 0;
+		  padding: 0;
+			position: relative;
+  		left: -100%;
+			li {
+				flex: 1 0 100%;
+			}
+		}
+	}
+  .plannedTrip {
+		// height:200px;
+	  // margin-right:10px;
+	  // width:200px;
+    cursor: pointer;
+    // width: 100%;
+    // height: 100%;
+
 	// ----- Carousel ----- //
 
 	.carousel {
@@ -19,7 +42,6 @@
 		height: 100%;
 		ul {
 			list-style: none;
-			border: 1px solid pink;
 			width: 100%;
 			height: 100%;
 		}
@@ -51,8 +73,6 @@
     align-items: flex-end;
     transition: all 0.3s;
 
-    // filter: brightness(70%);
-    // -webkit-filter: grayscale(50%); /* Safari */
     filter: grayscale(50%);
 
     // @media (min-width: $firstCheckPoint) {
