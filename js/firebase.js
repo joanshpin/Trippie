@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', function(){
   var app = firebase.initializeApp(config);
 
   //AUTHENTIFICATION
-  const email = document.querySelector()
+  // const email = document.querySelector()
 
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-  });
+  // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // // Handle Errors here.
+  // var errorCode = error.code;
+  // var errorMessage = error.message;
+  // // ...
+  // });
 
 
   // REACHING OUT TO NESTED FOLDERS IN FIREBASE DATABASE

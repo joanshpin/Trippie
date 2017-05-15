@@ -11,6 +11,8 @@
     height: 10vh;
     width: 100%;
   }
+
+
 	.wrap {
 		overflow: hidden;
 		ul.carousel {
@@ -32,7 +34,6 @@
     cursor: pointer;
     // width: 100%;
     // height: 100%;
-
 
 	// ----- Carousel ----- //
 
@@ -72,10 +73,14 @@
     align-items: flex-end;
     transition: all 0.3s;
 
+<<<<<<< HEAD
 
 
     // filter: brightness(70%);
     // -webkit-filter: grayscale(50%); /* Safari */
+=======
+    filter: grayscale(50%);
+>>>>>>> c8bdab229943efdce136b2098d4bfd525f560b92
 
     // @media (min-width: $firstCheckPoint) {
     //   width: 50%;
