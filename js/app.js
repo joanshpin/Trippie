@@ -57,47 +57,31 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
 
-
-  // PLANNED TRIPS CLICK-SHOW INFO - EVENT
-
-  //adding data to big div in planned trips
+  //ADDING DATA TO PLANNED TRIPS
   let plannedTripSelected = document.querySelector(".plannedTripSelected"); //choosing from former trips
+  console.log(plannedTripSelected);
   let plannedTripDivs = document.querySelectorAll(".plannedTrip"); //divs with class last trip, 6th of them
-  for ( let i = 0; i < plannedTripDivs.length; i++) {
-    //get the informations about clicked one from attributes stored in object
-    plannedTripDivs[i].addEventListener("click", function () {
-      let thisTitle = this.querySelector("h3").innerText;
-      let thisWhere = this.dataset.where;
-      let thisWhen1 = this.dataset.date1;
-      let thisWhen2 = this.dataset.date2;
-      let thisTransport = this.dataset.transport;
-      let thisAccomodation = this.dataset.accomodation;
-      let thisUrl = this.dataset.url;
-      // add to html and display all the info about clicked trip
-      plannedTripSelected.innerHTML = "<div class='shadow'><h2>"+thisTitle+" </h2> <h3> Where: "+thisWhere+" </h3> <h3> Arrival: "+thisWhen1+" </h3> <h3> Departure: "+thisWhen2+" </h3> <h3> Transport: "+thisTransport+" </h3> <h3> Accomodation: "+thisAccomodation+" </h3></div>"
-      // set the background from attribute
-      plannedTripSelected.style.backgroundImage = "url("+thisUrl+")";
-      plannedTripSelected.classList.remove("hidden");
-      plannedTripSelected.classList.add("shown");
-      // hide all the other plannedTripDivs
-      for ( let i = 0; i < plannedTripDivs.length; i++) {
-        plannedTripDivs[i].classList.add("hidden");
-      };
-    });
-  };
-  // //click event on opened PLANNEDTRIPS to close it
-  // plannedTripSelected.addEventListener("click", function() {
-  //   if (plannedTripSelected.classList.contains("shown")) {
-  //     plannedTripSelected.classList.remove("shown");
-  //     plannedTripSelected.classList.add("hidden");
-  //     plannedTripSelected.innerHTML = "";
-  //   };
-  //   //showing whole list of lastTripDivs
-  //   for ( let i = 0; i < plannedTripDivs.length; i++) {
-  //     plannedTripDivs[i].classList.remove("hidden");
-  //   };
-  // }); //closing event PLANNEDTRIPS
 
+  function plannedTripsData() {
+    for ( let i = 0; i < plannedTripDivs.length; i++) {
+      let plannedTitle = plannedTripDivs[i].querySelector("h3").innerText;
+      let plannedWhere = plannedTripDivs[i].dataset.where;
+      let plannedWhen1 = plannedTripDivs[i].dataset.date1;
+      let plannedWhen2 = plannedTripDivs[i].dataset.date2;
+      let plannedTransport = plannedTripDivs[i].dataset.transport;
+      let plannedAccomodation = plannedTripDivs[i].dataset.accomodation;
+      let plannedUrl = plannedTripDivs[i].dataset.url;
+
+      console.log(plannedTitle, plannedWhere, plannedWhen1, plannedWhen2, plannedTransport, plannedAccomodation);
+
+      plannedTripDivs[i].style.backgroundImage = "url("+plannedUrl+")";
+
+      plannedTripDivs[i].innerHTML = "<div class='shadow'><h2>"+plannedTitle+" </h2> <h3> Where: "+plannedWhere+" </h3> <h3> Arrival: "+plannedWhen1+" </h3> <h3> Departure: "+plannedWhen2+" </h3> <h3> Transport: "+plannedTransport+" </h3> <h3> Accomodation: "+plannedAccomodation+" </h3></div>"
+
+    };
+  };
+  //CALLING TO SET FUNCTION AFTER 2SECS - WHEN DATABASE IS LOADED
+  setTimeout(function() { plannedTripsData(); }, 1500);
 
 
 
