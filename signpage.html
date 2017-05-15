@@ -28,18 +28,32 @@
     </header>
 
     <section class="authentification">
-      <form action="">
-        <a href="#">
-          <h3>Log in</h3>
-        </a>
-        <label for="userLogin">LOGIN</label>
-        <input type="text" name="userLogin" value="" placeholder="Login">
-        <label for="userEmail">E-MAIL</label>
-        <input type="email" name="userEmail" value="" placeholder="Email address">
-        <label for="userPassword">PASSWORD</label>
-        <input type="password" name="userPassword" value="" placeholder="Password">
-        <button type="submit" name="buttonSubmit">Submit</button>
+
+      <form class="form" id="contactForm" method="post" novalidate action="/send-scripts.php">
+        <div class="form-row">
+          <label for="field-name">Name*</label>
+          <input type="text" name="name" required id="field-name" data-error="Wypełnij to pole" pattern="[a-zA-ZąĄććęęłŁńŃóÓśŚżŻŹŹ ]+">
+        </div>
+        <div class="form-row">
+          <label for="field-email">Email*</label>
+          <input type="email" name="email" required id="field-email" data-error="Wpisz poprawny email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+        </div>
+        <div class="form-row">
+          <label for="field-password">Password*</label>
+          <input type="password" name="password" required id="field-password" data-error="Wpisz poprawne hasło" pattern=".+">
+        </div>
+        <div class="form-row">
+          <label class="checkbox-cnt">
+            <input type="checkbox" data-error="Musisz wypełnić pole" name="regulation">
+            <i class="state" aria-hidden="true"></i>
+            <span>Zapoznałem się z regulaminem.</span>
+          </label>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="submit-btn">Wyślij</button>
+        </div>
       </form>
+
     </section>
 
 
