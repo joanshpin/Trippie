@@ -2,7 +2,7 @@ var map;
 //Google geocoding
 function initMap() {
   var krakow = {lat: 50.061676, lng: 19.937770};
-  map = new google.maps.Map(document.getElementById('map'), { zoom: 1, center: krakow });
+  map = new google.maps.Map(document.getElementById('map'), { zoom: 2, center: krakow });
   var geocoder = new google.maps.Geocoder();
   var submitAddress = document.getElementById('submit');
 
