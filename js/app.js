@@ -72,8 +72,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
       plannedTripDivs[i].innerHTML = "<div class='shadow'><h2>"+plannedTitle+" </h2> <h3> Where: "+plannedWhere+" </h3> <h3> Arrival: "+ plannedWhen1+" </h3> <h3> Departure: "+ plannedWhen2 +" </h3> <h3> Transport: "+plannedTransport+" </h3> <h3> Accomodation: "+plannedAccomodation+" </h3></div>"
 
-      console.log("<div class='shadow'><h2>"+plannedTitle+" </h2> <h3> Where: "+plannedWhere+" </h3> <h3> Arrival: "+ plannedWhen1+" </h3> <h3> Departure: "+ plannedWhen2 +" </h3> <h3> Transport: "+plannedTransport+" </h3> <h3> Accomodation: "+plannedAccomodation+" </h3></div>");
-
     };
   };
   //CALLING TO SET FUNCTION AFTER 2SECS - WHEN DATABASE IS LOADED
@@ -131,13 +129,12 @@ function carousel() {
       let thisWhere = this.dataset.where;
       let thisWhen1 = this.dataset.date1;
       let thisWhen2 = this.dataset.date2;
-      console.log(parseDateFromNumber());
       let thisTransport = this.dataset.transport;
       let thisAccomodation = this.dataset.accomodation;
       let thisUrl = this.dataset.url;
 
       // add to html and display all the info about clicked trip
-      lastTripSelected.innerHTML = "<div class='shadow'><h2>"+thisTitle+" </h2> <h3> Where: "+thisWhere+" </h3> <h3> Arrival: "+ thisWhen1 +" </h3> <h3> Departure: "+ parseDateFromNumber(thisWhen2) +" </h3> <h3> Transport: "+thisTransport+" </h3> <h3> Accomodation: "+thisAccomodation+" </h3></div>"
+      lastTripSelected.innerHTML = "<div class='shadow'><h2>"+thisTitle+" </h2> <h3> Where: "+thisWhere+" </h3> <h3> Arrival: "+ thisWhen1 +" </h3> <h3> Departure: "+ thisWhen2 +" </h3> <h3> Transport: "+thisTransport+" </h3> <h3> Accomodation: "+thisAccomodation+" </h3></div>"
       // set the background from attribute
       lastTripSelected.style.backgroundImage = "url("+thisUrl+")";
       lastTripSelected.classList.remove("hidden");
@@ -151,6 +148,7 @@ function carousel() {
   //click event on opened lastTrip to close it
   lastTripSelected.addEventListener("click", function() {
     if (lastTripSelected.classList.contains("shown")) {
+      console.log(lastTripSelected);
       lastTripSelected.classList.remove("shown");
       lastTripSelected.classList.add("hidden");
       lastTripSelected.innerHTML = "";
