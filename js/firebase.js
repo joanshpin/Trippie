@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function(){
     messagingSenderId: "73522637552"
   };
 
-
   //call to firebase
   var app = firebase.initializeApp(config);
 
@@ -25,12 +24,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   // REACHING OUT TO NESTED FOLDERS IN FIREBASE DATABASE
-  // var cities = app.database().ref('cities');
   var myPlaces = app.database().ref("places/myPlaces");
   // changing myPlaces to two different categories
   var myPlacesPlan = app.database().ref("places/myPlaces/planned");
   var myPlacesMemory = app.database().ref("places/myPlaces/memorised");
-
 
 
   // SUBMITTING TO FIREBASE DATABASE DATA TAKEN FROM PLAN SECTION
@@ -76,9 +73,7 @@ document.addEventListener('DOMContentLoaded', function(){
         "lng": lngVal
       });
     };
-
     // var newKey = (newPlace.key); //key to new object in database
-
   });
 
 
@@ -89,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function(){
     let objMemorised = data.val().memorised;
     let objPlanned = data.val().planned;
 
-
     //PLANS PART
     //new array with attributes from firebase
     var arrPlanned = [];
@@ -97,25 +91,26 @@ document.addEventListener('DOMContentLoaded', function(){
     for (var prop in objPlanned) {
       arrPlanned.push(objPlanned[prop]);
       }
-      console.log(arrPlanned);
-
       arrPlanned.sort() //IT NEEDS TO SORT ARRAY BY ARRIVAL DATE aka objPlanned[prop][arrival date]
-      console.log(arrPlanned);
+      // console.log(arrPlanned);
 
-
+    function parseDateFromNumber (number) {
+      let dateFromNumber = new Date (number);
+      let result = dateFromNumber.toLocaleDateString();
+      return result;
+    };
+    
       //adding background and title to lastTrips -data from array with memories
     for (let i = arrPlanned.length-1; i >= arrPlanned.length-6; i--) {
       let counter = arrPlanned.length -i;
-      console.log(counter);
       let plannedTrip = document.querySelector("#plannedTrip"+counter);
       // console.log(plannedTrip);
       let plannedTripName = document.querySelector("#plannedTrip"+counter+" h3");
       // console.log(plannedTripName);
-      console.log(arrPlanned[i]["name_of_trip"]);
       let plannedTripTitle = arrPlanned[i]["name_of_trip"];
       let plannedTripWhere = arrPlanned[i]["place"];
-      let plannedTripWhen1 = arrPlanned[i]["arrival date"];
-      let plannedTripWhen2 = arrPlanned[i]["departure date"];
+      let plannedTripWhen1 = parseDateFromNumber(arrPlanned[i]["arrival date"]);
+      let plannedTripWhen2 = parseDateFromNumber(arrPlanned[i]["departure date"])
       let plannedTripTransport = arrPlanned[i]["transport"];
       let plannedTripAccomodation = arrPlanned[i]["accomodation"];
       let plannedTripUrl = arrPlanned[i]["url"];
@@ -131,11 +126,7 @@ document.addEventListener('DOMContentLoaded', function(){
         plannedTrip.dataset.accomodation = plannedTripAccomodation;
         plannedTrip.dataset.url = plannedTripUrl;
       }
-
     } //closing first iteration OF PLANS
-
-
-
 
     //MEMORIES PART
     //new array with attributes from firebase
@@ -144,16 +135,15 @@ document.addEventListener('DOMContentLoaded', function(){
     for (var prop in objMemorised) {
       arrMemorised.push(objMemorised[prop]);
       }
-
-      //adding background and title to lastTrips -data from array with memories
+    //adding background and title to lastTrips -data from array with memories
     for (var i = arrMemorised.length-1; i >= arrMemorised.length-6; i--) {
       var counter = arrMemorised.length -i;
       var lastTrip = document.querySelector("#lastTrip"+counter);
       var lastTripName = document.querySelector("#lastTrip"+counter+" h3");
       var lastTripTitle = arrMemorised[i]["name_of_trip"];
       var lastTripWhere = arrMemorised[i]["place"];
-      var lastTripWhen1 = arrMemorised[i]["arrival date"];
-      var lastTripWhen2 = arrMemorised[i]["departure date"];
+      var lastTripWhen1 = parseDateFromNumber(arrMemorised[i]["arrival date"]);
+      var lastTripWhen2 = parseDateFromNumber(arrMemorised[i]["departure date"]);
       var lastTripTransport = arrMemorised[i]["transport"];
       var lastTripAccomodation = arrMemorised[i]["accomodation"];
       var lastTripUrl = arrMemorised[i]["url"];
@@ -177,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function(){
     // ADDING PLACES TO GOOGLE MAP
     var places = [];
     for (var i = 0; i < arrMemorised.length; i++) {
-      var lastTripTitle = arrMemorised[i]["name of trip"]
+      var lastTripTitle = arrMemorised[i]["name of trip"];
       var latVal = arrMemorised[i].lat;
       var lngVal = arrMemorised[i].lng;
       var trip = [lastTripTitle, latVal, lngVal, i];

@@ -1,19 +1,16 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-
   //BUTTONS IN PLANDATA SECTION EVENTLISTENER
-
   let planData = document.querySelector(".planData");
   let btns = planData.querySelectorAll(".planData button");
 
   for ( i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-      //nothing is in input
-       let children = this.previousElementSibling.children;
-       let sibling = this.parentElement.nextElementSibling;
+    btns[i].addEventListener("click", function() { //nothing is in input
 
-      //if icon NOT changed to pencil yet
-      if (this.innerHTML != '<i class="fa fa-pencil" aria-hidden="true"></i>') {
+      let children = this.previousElementSibling.children;
+      let sibling = this.parentElement.nextElementSibling;
+
+      if (this.innerHTML != '<i class="fa fa-pencil" aria-hidden="true"></i>') { //icon NOT changed to pencil
         if (children[0].value.length > 0) { // if there is something in text input
           let spanVal = children[0].value; // value in text input
           children[1].innerText = spanVal; // assignment this value to span near input, which is empty before
@@ -21,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function(){
           this.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>'; // changing icon to pencil??????????
           sibling.classList.remove("msgShown"); //hiding error message
         }
-        else {         // if input is empty
-          sibling.classList.add("msgShown"); // show error message
+        else { //input is empty
+          sibling.classList.add("msgShown"); //error message
         };
       } else { // if icon IS changed to pencil (when it has been changed before)
         children[1].innerText = ""; // cleaning value in span input
@@ -57,9 +54,8 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
 
-  //ADDING DATA TO PLANNED TRIPS
+  //ADDING DATA TO PLANNED TRIPS, to FIREBASE
   let plannedTripSelected = document.querySelector(".plannedTripSelected"); //choosing from former trips
-  console.log(plannedTripSelected);
   let plannedTripDivs = document.querySelectorAll(".plannedTrip"); //divs with class last trip, 6th of them
 
   function plannedTripsData() {
@@ -72,11 +68,11 @@ document.addEventListener('DOMContentLoaded', function(){
       let plannedAccomodation = plannedTripDivs[i].dataset.accomodation;
       let plannedUrl = plannedTripDivs[i].dataset.url;
 
-      console.log(plannedTitle, plannedWhere, plannedWhen1, plannedWhen2, plannedTransport, plannedAccomodation);
-
       plannedTripDivs[i].style.backgroundImage = "url("+plannedUrl+")";
 
-      plannedTripDivs[i].innerHTML = "<div class='shadow'><h2>"+plannedTitle+" </h2> <h3> Where: "+plannedWhere+" </h3> <h3> Arrival: "+plannedWhen1+" </h3> <h3> Departure: "+plannedWhen2+" </h3> <h3> Transport: "+plannedTransport+" </h3> <h3> Accomodation: "+plannedAccomodation+" </h3></div>"
+      plannedTripDivs[i].innerHTML = "<div class='shadow'><h2>"+plannedTitle+" </h2> <h3> Where: "+plannedWhere+" </h3> <h3> Arrival: "+ plannedWhen1+" </h3> <h3> Departure: "+ plannedWhen2 +" </h3> <h3> Transport: "+plannedTransport+" </h3> <h3> Accomodation: "+plannedAccomodation+" </h3></div>"
+
+      console.log("<div class='shadow'><h2>"+plannedTitle+" </h2> <h3> Where: "+plannedWhere+" </h3> <h3> Arrival: "+ plannedWhen1+" </h3> <h3> Departure: "+ plannedWhen2 +" </h3> <h3> Transport: "+plannedTransport+" </h3> <h3> Accomodation: "+plannedAccomodation+" </h3></div>");
 
     };
   };
@@ -113,8 +109,14 @@ function carousel() {
   };
   carousel();
 
-
-
+  //FUNCTION PARSING NUMBER INTO DATES
+  setTimeout(function parseNumberToDate(number) {
+    if (number > 0) {
+      let numberParsedIntoDate = new Date(thisWhen1);
+      console.log(numberParsedIntoDate);
+      return numberParsedIntoDate;
+    }
+  }, 3000);
 
 
   // LAST TRIPS CLICK-SHOW INFO - EVENT
@@ -129,11 +131,13 @@ function carousel() {
       let thisWhere = this.dataset.where;
       let thisWhen1 = this.dataset.date1;
       let thisWhen2 = this.dataset.date2;
+      console.log(parseDateFromNumber());
       let thisTransport = this.dataset.transport;
       let thisAccomodation = this.dataset.accomodation;
       let thisUrl = this.dataset.url;
+
       // add to html and display all the info about clicked trip
-      lastTripSelected.innerHTML = "<div class='shadow'><h2>"+thisTitle+" </h2> <h3> Where: "+thisWhere+" </h3> <h3> Arrival: "+thisWhen1+" </h3> <h3> Departure: "+thisWhen2+" </h3> <h3> Transport: "+thisTransport+" </h3> <h3> Accomodation: "+thisAccomodation+" </h3></div>"
+      lastTripSelected.innerHTML = "<div class='shadow'><h2>"+thisTitle+" </h2> <h3> Where: "+thisWhere+" </h3> <h3> Arrival: "+ thisWhen1 +" </h3> <h3> Departure: "+ parseDateFromNumber(thisWhen2) +" </h3> <h3> Transport: "+thisTransport+" </h3> <h3> Accomodation: "+thisAccomodation+" </h3></div>"
       // set the background from attribute
       lastTripSelected.style.backgroundImage = "url("+thisUrl+")";
       lastTripSelected.classList.remove("hidden");
@@ -177,9 +181,9 @@ function carousel() {
     let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     let newDate = new Date(Date.parse('2012-01-26T13:51:50.417-07:00'));
-    console.log(newDate.getFullYear() + " " + monthNames[newDate.getMonth()] + " " + newDate.getDate());
+    // console.log(newDate.getFullYear() + " " + monthNames[newDate.getMonth()] + " " + newDate.getDate());
 
-    console.log(milliseconds);
+    // console.log(milliseconds);
 
     let myDate = new Date (1393123820009); //podaje date wynikajaca z milisekund
     console.log(myDate);
