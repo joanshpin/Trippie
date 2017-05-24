@@ -1,26 +1,43 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-  //BUTTONS IN PLANDATA SECTION EVENTLISTENER
-  let planData = document.querySelector(".planData");
-  let btns = planData.querySelectorAll(".planData button");
+  //ADDING NEW TRIP IN THE FIRST SECTION
 
-  for ( i = 0; i < btns.length; i++) {
+  const planData = document.querySelector(".planData"); // div inside of which planning parts are
+  const btns = planData.querySelectorAll(".planData button"); //buttons submitting part of plans
+  const submitTripPlan = document.getElementById("submitTripPlan"); //button sumbit
+
+
+  submitTripPlan.setAttribute("disabled", "disabled"); //setting the submit button disable
+
+  //BUTTONS IN PLANDATA SECTION EVENTLISTENER
+  for ( let i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() { //nothing is in input
 
-      let children = this.previousElementSibling.children;
-      let sibling = this.parentElement.nextElementSibling;
+      let children = this.previousElementSibling.children; //[input, span]
+      let sibling = this.parentElement.nextElementSibling; // div msg
 
-      if (this.innerHTML != '<i class="fa fa-pencil" aria-hidden="true"></i>') { //icon NOT changed to pencil
-        if (children[0].value.length > 0) { // if there is something in text input
-          let spanVal = children[0].value; // value in text input
+      if (this.innerHTML != '<i class="fa fa-pencil" aria-hidden="true"></i>') { // START - icon NOT changed to pencil
+
+        if (children[0].value.length > 0) { // text input full
+          let spanVal = children[0].value; // assingnment value in text input to "spanVal"
           children[1].innerText = spanVal; // assignment this value to span near input, which is empty before
           children[0].style.display = "none"; // hiding input
-          this.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>'; // changing icon to pencil??????????
+          this.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>'; // changing icon to pencil?
           sibling.classList.remove("msgShown"); //hiding error message
-        }
-        else { //input is empty
+
+          /*checking if every icon is changed to pencil
+          to enable submit button
+          it needs to be shorter way!!!!*/
+          if (btns[0].innerHTML == '<i class="fa fa-pencil" aria-hidden="true"></i>' && btns[1].innerHTML == '<i class="fa fa-pencil" aria-hidden="true"></i>' && btns[2].innerHTML == '<i class="fa fa-pencil" aria-hidden="true"></i>' && btns[3].innerHTML == '<i class="fa fa-pencil" aria-hidden="true"></i>' && btns[4].innerHTML == '<i class="fa fa-pencil" aria-hidden="true"></i>' && btns[5].innerHTML == '<i class="fa fa-pencil" aria-hidden="true"></i>' && btns[6].innerHTML == '<i class="fa fa-pencil" aria-hidden="true"></i>') {
+            submitTripPlan.removeAttribute("disabled");
+          } else {
+            submitTripPlan.setAttribute("disabled", "disabled");
+          };
+
+        } else { //input is empty
           sibling.classList.add("msgShown"); //error message
         };
+
       } else { // if icon IS changed to pencil (when it has been changed before)
         children[1].innerText = ""; // cleaning value in span input
         children[0].style.display = "block"; // showing input again
@@ -30,17 +47,22 @@ document.addEventListener('DOMContentLoaded', function(){
   }; //closing loop for btns
 
 
-
   //SUBMITTING  ------------------ TO IMPROVE, NOW YOU CAN ONLY DO IT ONCE
-  /* the idea is, to show message, the plan/memory is in, and show the first view, like after the start of app*/
+  /* the idea is, to show message: "the plan/memory is in", and show the first view, like after the start of app*/
 
-  let submitTripPlan = document.getElementById("submitTripPlan");
   submitTripPlan.addEventListener("click", function() {
-    submitTripPlan.innerText = "YOUR TRIP IS IN NOW!" //changing text in submit button
-    let vals = document.querySelectorAll(".planData span"); //clering spans
-    for ( i = 0; i < vals.length; i++) {
-      vals[i].innerText = " ";
+
+    alert("YOUR TRIP IS IN NOW! CHECK IT BELOW")
+    let vals = document.querySelectorAll(".planData span"); //clearing spans
+    let inputs = document.querySelectorAll(".plandata input");
+    for ( let i = 0; i < vals.length; i++) {
+      vals[i].innerText = "";
     };
+    inputs.forEach( function(element) {
+      console.log(element);
+      element.style.display = "block";
+    })
+
   }); //closing submitTripPlan event
 
 

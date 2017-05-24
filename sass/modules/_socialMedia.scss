@@ -12,17 +12,14 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    height: 20vh;
     background-color: $secondBcgColor;
-    // width: 100%;
-
   }
   .logos {
     width: 60%;
-    // height: 20vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1rem 0;
     div {
       // width: 33.33%;
       i {
@@ -32,11 +29,12 @@
         width: 100%;
         color: $accentColor;
         border-radius: 2px;
+        border: 1px solid $secondBcgColor;
         &:hover {
-    				filter: brightness(150%);
-            border: 1px solid $accentColor;
+  				filter: brightness(150%);
+          border: 1px solid $accentColor;
 
-            // border: 1px solid white;
+          // border: 1px solid white;
     			}
       }
     }

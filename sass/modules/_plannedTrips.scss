@@ -15,6 +15,7 @@
 		height: 40vh;
 		width: 100%;
 		display: flex;
+		position: relative;
 	}
 	// ----- Carousel ----- //
 	ul.carousel {
@@ -77,7 +78,7 @@
 		display: inline-block;
     position: absolute;
     z-index: 3;
-    top: 54rem;
+    top: 45%;
 		font-size: 2em;
 		color: white;
 		cursor: pointer;

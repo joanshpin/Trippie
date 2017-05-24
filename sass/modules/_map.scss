@@ -12,7 +12,7 @@
     align-items: center;
     flex-direction: column;
     #map {
-      height: 40vh;
+      min-height: 40vh;
       width: 100%;
       #floating-panel {
         position: absolute;

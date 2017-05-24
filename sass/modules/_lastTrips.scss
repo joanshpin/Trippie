@@ -27,9 +27,6 @@
     border-bottom: 1px solid $secondBcgColor;
     filter: brightness(70%);
     position: relative;
-
-    // -webkit-filter: grayscale(50%); /* Safari */
-    // filter: grayscale(50%);
     @media (min-width: $firstCheckPoint) {
       width: 50%;
     }
@@ -43,7 +40,6 @@
     }
     &:hover {
 				filter: brightness(115%);
-        // border: 1px solid white;
 			}
   }
   .lastTrip::after {
