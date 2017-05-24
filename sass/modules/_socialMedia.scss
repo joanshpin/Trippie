@@ -33,8 +33,12 @@
         &:hover {
   				filter: brightness(150%);
           border: 1px solid $accentColor;
-
-          // border: 1px solid white;
+          outline: none;
+    			}
+        &:focus {
+  				filter: brightness(150%);
+          border: 1px solid $accentColor;
+          outline: none;
     			}
       }
     }

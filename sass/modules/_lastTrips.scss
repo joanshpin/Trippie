@@ -33,17 +33,12 @@
     @media (min-width: $thirdCheckPoint) {
       width: 33.33%;
     }
-    h3 {
-      color: white;
-      z-index: 2;
-      padding-bottom: 1em;
-    }
     &:hover {
 				filter: brightness(115%);
-			}
+		}
   }
   .lastTrip::after {
-    content: " ";
+    content: "";
     display: block;
     z-index: 1;
     width: 100%;
@@ -78,21 +73,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  // height: 100%;
-  h3 {
-    color: white;
-    font-size: 1.5em;
-    z-index: 3;
-  }
-  h2 {
-    color: white;
-    font-size: 1.7em;
-    z-index: 3;
-
-  }
 }
-
 
 .lastTripSelected {
   div.shadow {
@@ -106,8 +87,9 @@
     flex-direction: column;
     background: transparent;
     transition: 0.5s all;
+    @include gradientHorizontal (transparent, $transparentBlack2, transparent);
     h2, h3 {
-      opacity: 0;
+      opacity: 1;
       transition: 0.5s all;
       z-index: 3;
     }
@@ -124,10 +106,10 @@
     align-items: center;
     flex-direction: column;
   }
-  div.shadow:hover h2 {
-    opacity: 1;
-  }
-  div.shadow:hover h3 {
-    opacity: 1;
-  }
+  // div.shadow:hover h2 {
+  //   opacity: 1;
+  // }
+  // div.shadow:hover h3 {
+  //   opacity: 1;
+  // }
 }

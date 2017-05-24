@@ -19,14 +19,30 @@ html {
 	clear: both;
 }
 
+h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: white;
+	z-index: 2;
+	padding: 0.5rem;
+}
+h3 {
+	font-size: 1.3rem;
+	color: white;
+	z-index: 2;
+	padding: 0.5rem;
+}
+h4 {
+	font-size: 1.15rem;
+	color: white;
+	z-index: 2;
+	padding: 0.5rem;
+}
+
+
 
 /*HEADER*/
 header {
-	// height: 30vh;
-	// background-image: url("../images/wallup.jpg");
-	// background-position: center;
-	// background-size: cover;
-	// background-repeat: no-repeat;
 	background-color: $firstBcgColor;
 }
 
@@ -42,7 +58,6 @@ nav {
 		align-items: center;
 		justify-content: space-between;
 	}
-
 	.logo {
 		background-image: url(../images/logo.png);
 		background-position: center;
@@ -56,7 +71,6 @@ nav {
 .menu {
 	i.fa-bars {
 		font-size: 1.2em;
-		// margin: 0 1em;
 		cursor: pointer;
 		@media (min-width: $firstCheckPoint) {
 			display: none;
@@ -71,24 +85,24 @@ nav {
 	li {
 		display: inline-block;
 		cursor: pointer;
-		a {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-end;
-			justify-content: flex-end;
-			text-decoration: none;
-			color: white;
-			i {
-			color: white;
-			@media (min-width: $firstCheckPoint) {
-				display: inline-block;
-				font-size: 1.4em;
-				padding: 0 1em;
-				}
-			@media(min-width: $secondCheckPoint) {
-				display: none;
-				}
-			}
+	}
+	a {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: flex-end;
+		text-decoration: none;
+		color: white;
+	}
+	i {
+	color: white;
+	@media (min-width: $firstCheckPoint) {
+		display: inline-block;
+		font-size: 1.4em;
+		padding: 0 1em;
+		}
+	@media(min-width: $secondCheckPoint) {
+		display: none;
 		}
 	}
 }
@@ -127,38 +141,38 @@ nav {
 		display: inline-block;
 		cursor: pointer;
 		margin: 5px 0;
-		i {
-			display: none;
-		}
-		h3 {
-			text-align: right;
-			display: block;
-			margin: 0 1em;
-		}
+	}
+	i {
+		display: none;
+	}
+	h3 {
+		text-align: right;
+		display: block;
+		margin: 0 1em;
+		padding: 0;
 	}
 }
 
 
 .intro {
-	// height: 80%;
+
 	.container {
-		// height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: row;
-		.mainText {
-			font-size: 1.5em;
-			color: lighten($secondBcgColor, 30%);
-		}
-		div {
-			background-image: url(../images/logo.png);
-			background-position: center;
-			background-size: contain;
-			background-repeat: no-repeat;
-			width: 8em;
-			height: 4em;
-			padding: 5rem 0;
-		}
+	}
+	.mainText {
+		font-size: 1.5em;
+		color: lighten($secondBcgColor, 30%);
+	}
+	.container div {
+		background-image: url(../images/logo.png);
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 8em;
+		height: 4em;
+		padding: 5rem 0;
 	}
 }
