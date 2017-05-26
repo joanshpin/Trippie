@@ -1,13 +1,10 @@
 .plan {
-	// height: 70vh;
-	// background-color: $secondBcgColor;
 	background-image: url("../images/wal.jpg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	padding: 1rem 0 2rem 0;
+	padding: 1rem 0;
 	.container {
-		// height: 100%;
 		color: white;
 		display: flex;
 		flex-direction: column;
@@ -21,7 +18,6 @@
 	.planData {
 	}
 	.planPart {
-		// padding: 0.25em;
 		font-size: 1em;
 		display: flex;
 		justify-content: space-between;
@@ -31,7 +27,6 @@
 		display:block;
 	}
 	.planPart button {
-		// padding: 0.5em 0.7em;
 		font-size: 1em;
 		border: 1px solid $accentColor;
 		border-radius: 2px;
@@ -74,8 +69,8 @@
 		display: none;
 		transition: 0.3s all ease-in-out;
 		color: $accentColor;
-		font-size: 0.8em;
-		margin-left: 0.5em;
+		font-size: 0.8rem;
+		margin-left: 0.5rem;
 	}
 	.msgShown {
 		display: block;

@@ -25,7 +25,7 @@
     transition: all 0.3s;
     border-top: 1px solid $secondBcgColor;
     border-bottom: 1px solid $secondBcgColor;
-    filter: brightness(70%);
+    // filter: brightness(70%);
     position: relative;
     @media (min-width: $firstCheckPoint) {
       width: 50%;
